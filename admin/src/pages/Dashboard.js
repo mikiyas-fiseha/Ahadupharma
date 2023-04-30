@@ -3,7 +3,7 @@ import { BsArrowDownRight, BsArrowUpRight } from "react-icons/bs";
 import { Column } from "@ant-design/plots";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyData } from "../features/auth/authSlice";
+import { getMonthlyData, getOrders, getYearlyData } from "../features/auth/authSlice";
 
 const columns = [
   {
@@ -15,33 +15,37 @@ const columns = [
     dataIndex: "name",
   },
   {
-    title: "Product",
+    title: "Product Count",
     dataIndex: "product",
   },
   {
+    title: "Product price",
+    dataIndex: "price",
+  },
+ 
+  {
     title: "Status",
-    dataIndex: "staus",
+    dataIndex: "status",
   },
 ];
-const data1 = [];
-for (let i = 0; i < 46; i++) {
-  data1.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    staus: `London, Park Lane no. ${i}`,
-  });
-}
+
 const Dashboard = () => {
 
   const dispatch = useDispatch();
   const monthlydDataState = useSelector((state) => state?.auth?.monthlyData);
+  const yearlyDataState = useSelector((state) => state?.auth?.yearlyData);
+  const orderState = useSelector((state) => state?.auth?.orders?.orders);
+console.log(orderState);
+
   const [dataMonthly,setDateMonthly]=useState([])
   const [dataMonthlySales,setDateMonthlySales]=useState([])
+  const [orderData,setOrderData]=useState([])
 
 
 useEffect(() => {
  dispatch(getMonthlyData())
+ dispatch(getYearlyData())
+ dispatch(getOrders())
 }, [])
 console.log(monthlydDataState,'s');
 
@@ -55,6 +59,18 @@ for (let index = 0; index < monthlydDataState?.length; index++) {
   monthlyOrderCount.push({type:monthNames[element?._id?.month],sales:element?.count})
   setDateMonthlySales(monthlyOrderCount)
   setDateMonthly(data)
+
+  const data1 = [];
+for (let i = 0; i < orderState?.length; i++) {
+  data1.push({
+    key: i,
+    name: orderState[i]?.user?.firstname + " "+orderState[i]?.user?.lasttname,
+    product: orderState[i]?.orderItems?.length,
+    price:orderState[i]?.totalPrice,
+    status: orderState[i]?.orderStatus,
+  });
+}
+setOrderData(data1)
 }
 console.log(data);
 
@@ -126,29 +142,29 @@ console.log(data);
       <div className="d-flex justify-content-between align-items-center gap-3">
         <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
-            <p className="desc">Total</p>
-            <h4 className="mb-0 sub-title">$1100</h4>
+            <p className="desc">Total Income</p>
+            {/* <h4 className="mb-0 sub-title">${yearlyDataState&&yearlyDataState[0]?.amount}</h4> */}
           </div>
           <div className="d-flex flex-column align-items-end">
-            <h6>
+            {/* <h6>
               <BsArrowDownRight /> 32%
-            </h6>
-            <p className="mb-0  desc">Compared To April 2022</p>
+            </h6> */}
+            <p className="mb-0  desc">Yearly Total Income</p>
           </div>
         </div>
         <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
-            <p className="desc">Total</p>
-            <h4 className="mb-0 sub-title">$1100</h4>
+            <p className="desc">Total Sales</p>
+            {/* <h4 className="mb-0 sub-title">{yearlyDataState&&yearlyDataState[0]?.count}</h4> */}
           </div>
           <div className="d-flex flex-column align-items-end">
-            <h6 className="red">
+            {/* <h6 className="red">
               <BsArrowDownRight /> 32%
-            </h6>
-            <p className="mb-0  desc">Compared To April 2022</p>
+            </h6> */}
+            <p className="mb-0  desc">Yearly Total Sales</p>
           </div>
         </div>
-        <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
+        {/* <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
             <p className="desc">Total</p>
             <h4 className="mb-0 sub-title">$1100</h4>
@@ -159,7 +175,7 @@ console.log(data);
             </h6>
             <p className="mb-0 desc">Compared To April 2022</p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="d-flex justifiy-content-between gap-3">
 
@@ -181,7 +197,7 @@ console.log(data);
       <div className="mt-4">
         <h3 className="mb-5 title">Recent Orders</h3>
         <div>
-          <Table columns={columns} dataSource={data1} />
+          <Table columns={columns} dataSource={orderData} />
         </div>
       </div>
     </div>

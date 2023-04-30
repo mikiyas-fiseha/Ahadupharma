@@ -412,6 +412,18 @@ const getMyOrders=asyncHandler(async(req,res)=>{
 })
 
 
+const getAllOrders=asyncHandler(async(req,res)=>{
+
+  try {
+    const orders=await Order.find().populate("user").populate("orderItems.product")
+  res.json({orders});
+    
+  } catch (error) {
+  throw new Error(error);
+    
+  }
+})
+
 
 
 
@@ -730,5 +742,6 @@ module.exports={creatUser,
   getMyOrders,
   getMonthWiseOrderIncome,
   getMonthWiseOrderCount,
-  getYearlyTotalOrder
+  getYearlyTotalOrder,
+  getAllOrders
 }
