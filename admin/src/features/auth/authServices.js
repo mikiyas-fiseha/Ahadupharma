@@ -21,6 +21,14 @@ const getOrder = async (id) => {
   return response.data;
 };
 
+const updateOrder = async (data) => {
+  const response = await axios.put(
+    `${base_url}user/updateOrder/${data.id}`, {status:data.status},config
+  );
+
+  return response.data;
+};
+
 
 const getMonthlyOrder = async (id) => {
   const response = await axios.get(
@@ -41,7 +49,8 @@ const authService = {
   getOrders,
   getOrder,
   getMonthlyOrder,
-  getYearlyState
+  getYearlyState,
+  updateOrder
 };
 
 export default authService;

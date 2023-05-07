@@ -66,14 +66,12 @@ const ViewOrder = () => {
       other: orderState?.shippinginfo?.pincode,
       action: (
         <>
-          <select name="" className="form-control form-select">
-            <option value="Ordered" disabled>Ordered</option>
-            <option value="Proccessed">Proccessed</option>
-            <option value="Shipped">Shipped</option>
-            <option value="Out for delivery">Out for delivery</option>
-            <option value="Deliverd">Deliverd</option>
-
-          </select>
+          <Link to="/" className=" fs-3 text-danger">
+            <BiEdit />
+          </Link>
+          <Link className="ms-3 fs-3 text-danger" to="/">
+            <AiFillDelete />
+          </Link>
         </>
       ),
     });

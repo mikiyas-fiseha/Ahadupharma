@@ -32,7 +32,8 @@ getMonthWiseOrderIncome,
 getMonthWiseOrderCount,
 getYearlyTotalOrder,
 getAllOrders,
-getSingelOrder} = require("../controller/userCtrl")
+getSingelOrder,
+updateOrder} = require("../controller/userCtrl")
 const { 
 authMiddleware, 
 isAdmin } = require("../middlewares/authMiddleware")
@@ -69,6 +70,8 @@ router.get("/getmyorders", authMiddleware, getMyOrders);
 // router.get("/get-orders", authMiddleware, getOrders);
 router.get("/getallorders", authMiddleware, isAdmin, getAllOrders);
 router.get("/getaOrder/:id", authMiddleware, getSingelOrder); 
+router.put("/updateOrder/:id", authMiddleware, isAdmin,updateOrder); 
+
 // router.post("/getorderbyuser/:id", authMiddleware, isAdmin, getAllOrders);
 
 router.get("/refresh",handleRefreshToken)

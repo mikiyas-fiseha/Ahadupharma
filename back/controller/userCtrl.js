@@ -436,6 +436,20 @@ const {id}=req.params
   }
 })
 
+const updateOrder=asyncHandler(async(req,res)=>{
+  const {id}=req.params
+    try {
+      const orders=await Order.findById(id)
+       orders.orderStatus=req.body.status
+       await orders.save()
+    res.json({orders});
+      
+    } catch (error) {
+    throw new Error(error);
+      
+    }
+  })
+
 
 
 // const getMonthWiseOrderIncome=asyncHandler(async(req,res)=>{
@@ -755,5 +769,6 @@ module.exports={creatUser,
   getMonthWiseOrderCount,
   getYearlyTotalOrder,
   getAllOrders,
-  getSingelOrder
+  getSingelOrder,
+  updateOrder
 }
