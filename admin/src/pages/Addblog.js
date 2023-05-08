@@ -75,10 +75,12 @@ const Addblog = () => {
       url: i.url,
     });
   });
-  console.log(img);
+  //console.log(img);
   useEffect(() => {
     formik.values.images = img;
-  }, [blogImages]);
+    console.log(formik.values.images);
+    
+  }, [imgState]);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -96,10 +98,12 @@ const Addblog = () => {
         dispatch(resetState());
       } else {
         dispatch(createBlogs(values));
+       alert(JSON.stringify(values));
+
         formik.resetForm();
         setTimeout(() => {
           dispatch(resetState());
-        }, 300);
+        }, 400);
       }
     },
   });

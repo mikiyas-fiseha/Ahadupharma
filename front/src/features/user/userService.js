@@ -31,8 +31,8 @@ const addToCart=async(cartData)=>{
 
 }
 
-const getCart=async()=>{
-  const response=await axios.get(`${base_url}user/cart`,config)
+const getCart=async(data)=>{
+  const response=await axios.get(`${base_url}user/cart`,data)
  if(response.data){
   return response.data
   
@@ -40,8 +40,8 @@ const getCart=async()=>{
 
 }
 
-const removeProductFromCart=async(cartItemId)=>{
-  const response=await axios.delete(`${base_url}user/delete-product-cart/${cartItemId}`,config)
+const removeProductFromCart=async(data)=>{
+  const response=await axios.delete(`${base_url}user/delete-product-cart/${data.id}`,data.config2)
  if(response.data){
   return response.data
   
@@ -83,7 +83,7 @@ const getUserOrder=async()=>{
 
  const updateUser=async(Data)=>{
  
-  const response=await axios.put(`${base_url}user/edit-user`,Data,config)
+  const response=await axios.put(`${base_url}user/edit-user`,Data.data,Data.config2)
 
  if(response.data){
   return response.data

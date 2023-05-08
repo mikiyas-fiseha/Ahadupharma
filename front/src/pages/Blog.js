@@ -48,7 +48,7 @@ useEffect(()=>{
                     title={item.title}
                     description={item.description}
                     createdAt={item.createdAt}
-                   image={item.images[0]&&item.images[0]}
+                   image={item.images[0]&&item.images[0]?.url}
   
   
                      />

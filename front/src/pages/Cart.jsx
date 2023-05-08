@@ -14,14 +14,26 @@ const Cart = () => {
   const [totalAmount,setTotalAmount]=useState(null)
   console.log(totalAmount,"totalAmount")
     console.log(productUpdateDetail,'productUpdateDetail')
-    const userCartState=useSelector(state=>state.auth?.cartProducts)
+    const userCartState=useSelector(state=>state?.auth?.cartProducts)
  
 console.log(userCartState,"user");
 console.log(userCartState)
 
+const getTokenFromLocalStorage = localStorage.getItem("customer")
+? JSON.parse(localStorage.getItem("customer"))
+: null;
+
+const config2 = {
+headers: {
+  Authorization: `Bearer ${
+    getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+  }`,
+  Accept: "application/json",
+},
+};
 
 useEffect(()=>{
-  dispatch(getUserCart())
+  dispatch(getUserCart(config2))
   
 },[])
 
@@ -29,18 +41,17 @@ useEffect(()=>{
   if(productUpdateDetail!==null){
     dispatch(updateCartProduct({cartItemId:productUpdateDetail?.cartItemId,quantity:productUpdateDetail?.quantity}))
   setTimeout(()=>{
-    dispatch(getUserCart())
-    },300)
+    dispatch(getUserCart(config2))
+    },400)
   }
   
 },[productUpdateDetail])
 
 const deleteACartProduct=(id)=>{
-  dispatch(deleteCartProduct(id))
-  setTimeout(()=>{
-    dispatch(getUserCart())
-
-  },200)
+  dispatch(deleteCartProduct({id:id,config2:config2})).then(() => {
+    dispatch(getUserCart(config2));
+  });
+ 
 }
 
 useEffect(()=>{
@@ -88,11 +99,11 @@ if(userCartState){
                    
                       className="form-control"
                       type="number"
-                      name=""
+                      name={"quantity"+item._id}
                       min={1}
                       max={10}
-                      id=""
-                      value={productUpdateDetail?.quantity?productUpdateDetail?.quantity:item.quantity}
+                      id={"cart"+item._id}
+                      value={item?.quantity}
                       onChange={(e)=>{setproductUpdateDetail({cartItemId:item._id,quantity:e.target.value})}}
                     />
                   </div>

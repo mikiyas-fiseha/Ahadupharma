@@ -33,7 +33,7 @@ useEffect(()=>{
           <div className="col-12">
             <div className="single-blog-card">
             <h3 className="title">{blogState?.title}</h3>
-            <img src={blogState?.images[0]&&blogState?.images[0]} className="img-fluid w-100 my-4" alt="blog" />
+            <img src={blogState?.images[0]&&blogState?.images[0]?.url} className="img-fluid w-50  my-4" alt="blog" />
                 <p
               dangerouslySetInnerHTML={{__html:blogState?.description}}></p>
             </div>

@@ -341,7 +341,7 @@ useEffect(()=>{
         brand={item.brand} 
         title={item.title} 
         price={item.price}
-        image={item.images[0].url}
+        image={item.images[0]?.url}
         tags={item.tags}
         id={item._id}
       />
@@ -406,7 +406,7 @@ useEffect(()=>{
                     title={item.title}
                     description={item.description}
                     createdAt={item.createdAt}
-                   image={item.images[0]&&item.images[0]}
+                   image={item.images[0]&&item.images[0]?.url}
   
   
                      />

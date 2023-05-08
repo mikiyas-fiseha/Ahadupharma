@@ -26,13 +26,15 @@ const Login = () => {
     validationSchema:loginSchema,
     onSubmit: values => {
       dispatch(loginUser(values))
-      setTimeout(()=>{
-        if (authState?.isSuccess) {
-              navigate("/");
-           } 
-      },50)
+     
     },
   });
+
+  useEffect(()=>{
+    if(authState?.user!==null &&authState?.isError===false){
+      navigate('/')
+    }
+  },[authState])
 
 
   // const {  user,isSuccess} = authState.auth;

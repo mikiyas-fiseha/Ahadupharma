@@ -96,10 +96,10 @@ Productimages,
     });
   });
 
-  // useEffect(() => {
-  //   formik.values.color = color ? color : " ";
-  //   formik.values.images = img;
-  // }, [color, img]);
+  useEffect(() => {
+    //formik.values.color = color ? color : " ";
+    formik.values.images = img;
+  }, [ imgState]);
   const formik = useFormik({
     enableReinitialize:true,
     initialValues: {
@@ -122,6 +122,8 @@ Productimages,
 
       }else{
         dispatch(createProducts(values));
+       alert(JSON.stringify(values));
+
         formik.resetForm();
         setColor(null);
         setTimeout(() => {

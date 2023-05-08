@@ -56,9 +56,9 @@ const initialState = {
 
           export const getUserCart=createAsyncThunk(
             "user/get-cart" ,
-            async(thunkAPI)=>{
+            async(data,thunkAPI)=>{
                 try {
-                    return await authService.getCart()
+                    return await authService.getCart(data)
                 } catch (error) {
               return thunkAPI.rejectWithValue(error);
                     
@@ -168,7 +168,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = action.error;
         if(state.isError===true){
-          toast.info(action.error)
+          toast.error(action.payload.response.data.message)
         }
       }).addCase(loginUser.pending, (state) => {
         state.isLoading = true;
@@ -194,7 +194,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = action.error;
         if(state.isError===true){
-          toast.info(action.error)
+          toast.error(action.payload.response.data.message)
         }
       }).addCase(getUserProductWishlist.pending, (state) => {
         state.isLoading = true;
@@ -345,8 +345,22 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.message = "success";
         state.updatedUser = action.payload;
+
+
         if(state.isSuccess===true){
-          toast.info("Profile update  Successfuly")
+          let currentUserData=JSON.parse(localStorage.getItem('customer'))
+          console.log((currentUserData));
+          toast.success("Profile update  Successfuly")
+          let newUserData={
+            _id:currentUserData?._id,
+            token:currentUserData?.token,
+            firstname:action?.payload?.firstname,
+            lasttname:action?.payload?.lasttname,
+            email:action?.payload?.email,
+            mobile:action?.payload.mobile
+          }
+          state.user=newUserData;
+          localStorage.setItem("customer",JSON.stringify(newUserData))
         }
       
       })
@@ -355,6 +369,9 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.isLoading = false;
         state.message = action.error;
+        if(state.isSuccess===true){
+          toast.error("something went wrong")
+        }
        }).addCase(forgotPasswoedToken.pending, (state) => {
         state.isLoading = true;
       })
