@@ -50,11 +50,12 @@ const Addproduct = () => {
     dispatch(getColors());
   }, []);
 
-  const brandState = useSelector((state) => state.brand.brands);
-  const catState = useSelector((state) => state.pCategory.pCategories);
-  const colorState = useSelector((state) => state.color.colors);
-  const imgState = useSelector((state) => state.upload.images);
-  const newProduct = useSelector((state) => state.product);
+  const brandState = useSelector((state) => state?.brand?.brands);
+  const catState = useSelector((state) => state?.pCategory?.pCategories);
+  const colorState = useSelector((state) => state?.color?.colors);
+  const imgState = useSelector((state) => state?.upload?.images);
+  const newProduct = useSelector((state) => state?.product);
+  //console.log(typeof(newProduct?.Productimages[0]));
   const { isSuccess, isError, isLoading, createdProduct,updatedProduct,
 ProductName,
 ProductDesc,
@@ -73,8 +74,8 @@ Productimages,
     }
    
     if (isSuccess && updatedProduct) {
-      navigate("/admin/list-product")
       toast.success("Product updated Successfullly!");
+      navigate("/admin/list-product")
 
     }
     if (isError) {
@@ -118,6 +119,8 @@ Productimages,
       if(getProductId !== undefined ){
         const data={id:getProductId,productData:values}
         dispatch(updateAProduct(data))
+       alert(JSON.stringify(values));
+
        // dispatch(resetState());
 
       }else{

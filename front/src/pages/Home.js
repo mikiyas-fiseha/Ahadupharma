@@ -310,7 +310,7 @@ useEffect(()=>{
                   price={item?.price}
                    totalrating={item.totalrating}
                    sold={item?.sold}
-                   image={item?.images[0].url}
+                   image={item?.images[0]?.url}
 
                   quantity={item?.quantity}
                   

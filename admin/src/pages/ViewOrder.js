@@ -37,8 +37,8 @@ const columns = [
   },
 
   {
-    title: "Action",
-    dataIndex: "action",
+    title: "image",
+    dataIndex: "image",
   },
 ];
 
@@ -64,16 +64,16 @@ const ViewOrder = () => {
       sub: orderState?.shippinginfo?.state,
       sub: orderState?.shippinginfo?.state,
       other: orderState?.shippinginfo?.pincode,
-      action: (
-        <>
-          <Link to="/" className=" fs-3 text-danger">
-            <BiEdit />
-          </Link>
-          <Link className="ms-3 fs-3 text-danger" to="/">
-            <AiFillDelete />
-          </Link>
-        </>
-      ),
+      // action: (
+      //   <>
+      //     <Link to="/" className=" fs-3 text-danger">
+      //       <BiEdit />
+      //     </Link>
+      //     <Link className="ms-3 fs-3 text-danger" to="/">
+      //       <AiFillDelete />
+      //     </Link>
+      //   </>
+      // ),
     });
   }
   return (

@@ -26,6 +26,7 @@ import { PrivateRoutes } from './routing/PrivateRoutes';
 import { OpenRoutes } from './routing/OpenRoutes';
 import Orders from './pages/Orders';
 import Profile from './pages/Profile';
+import UserInfo from './pages/UserInfo';
 function App() {
   return (
     <>
@@ -40,6 +41,8 @@ function App() {
             <Route path='/cart' element={<PrivateRoutes><Cart /></PrivateRoutes>} />
             <Route path='/my-orders' element={<PrivateRoutes><Orders /></PrivateRoutes>} />
             <Route path='/my-profile' element={<PrivateRoutes><Profile /></PrivateRoutes>} />
+            <Route path='/user-info' element={<PrivateRoutes><UserInfo /></PrivateRoutes>} />
+
             <Route path="checkout" element={<PrivateRoutes><Checkout /></PrivateRoutes>} />
             <Route path='/blogs' element={<Blog />} />
             <Route path="blog/:id" element={<SingleBlog />} />

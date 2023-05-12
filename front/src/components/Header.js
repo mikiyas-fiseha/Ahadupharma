@@ -44,10 +44,10 @@ const Header = () => {
       setProductOtp(data)
     },[productState])
 
-    const handelLogOut=()=>{
-      localStorage.clear()
-      window.location.reload()
-    }
+    // const handelLogOut=()=>{
+    //   localStorage.clear()
+    //   window.location.reload()
+    // }
     
   return (
     <>
@@ -124,7 +124,7 @@ const Header = () => {
                 </div>
                 <div>
                   <Link
-                    to={authState.user===null? "/login":"/my-profile"}
+                    to={authState.user===null? "/login":"/user-info"}
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src={user} alt="user" />
@@ -200,10 +200,10 @@ const Header = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/product">Our Store</NavLink>
                     <NavLink to="/blogs">Blogs</NavLink>
-                    <NavLink to="/my-orders">My ORDERD</NavLink>
+                    {/* <NavLink to="/my-orders">My ORDERD</NavLink> */}
 
                     <NavLink to="/contact">Contact</NavLink>
-                    <button onClick={handelLogOut} className="border border-0 bg-transparent text-white text-uppercase" type="button">LogOut</button>
+                    {/* <button onClick={handelLogOut} className="border border-0 bg-transparent text-white text-uppercase" type="button">LogOut</button> */}
                   </div>
                 </div>
               </div>

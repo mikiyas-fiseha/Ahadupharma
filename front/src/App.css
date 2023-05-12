@@ -883,3 +883,20 @@ footer .input-group-text {
 .wishlist-wrapper{
   background-color: var(--color-f5f5f7);
 }
+
+
+.profilecard{
+background-color: #ffffff;
+height: 300px;
+border: 2px ;
+border-radius: 10px;
+margin-bottom: 20px;
+overflow: hidden;
+transition: transform 0.3s;
+}
+
+.profilecard:hover  {
+border-radius: 0px;
+
+  transform: scale(1.1);
+}

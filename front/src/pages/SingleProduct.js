@@ -16,25 +16,40 @@ import { addProdTOCart, getUserCart } from "../features/user/userSlice";
 import PopularProduct from "../components/PopularProduct";
 import { toast } from "react-toastify";
 const SingleProduct = () => {
+
+  const username = localStorage.getItem("customer")
+  ? JSON.parse(localStorage.getItem("customer")).firstname
+  : null;
+console.log(username);
+
+
+
   const location=useLocation()
   const navigate=useNavigate()
   const getProductId=location.pathname.split("/")[2]
   const [quantity,setQuantity]=useState(1)
 const [alreadyadded,seAtlreadyadded]=useState(false)
 
-  console.log(getProductId)
+  // console.log(getProductId)
   const dispatch=useDispatch()
   let pcounter=0
   
   const uploadCart=()=>{
-    dispatch(addProdTOCart({quantity,price: productState&&productState?.price,productId:productState&&productState?._id}))
-  navigate("/cart")
+
+
+  //   dispatch(addProdTOCart({quantity,price: productState&&productState?.price,productId:productState&&productState?._id}))
+  // navigate("/cart")
+  dispatch(addProdTOCart({ quantity, price: productState?.price, productId: productState?._id }))
+  .then(() => {
+    navigate("/cart");
+  });
+
   }
   const productState = useSelector((state) => state.product?.singleproduct);
   const productsState = useSelector((state) => state?.product?.product);
 
   const CartState=useSelector(state=>state.auth?.cartProducts)
-  console.log(CartState,'io')
+  // console.log(CartState,'io')
 
 
   console.log( productState?.ratings)
@@ -58,7 +73,7 @@ useEffect(()=>{
   // const props = {
   //   width: 594,
   //   height: 600,
-  //   zoomWidth: 600,
+  //   zoomWidth: 600, 
 
   //   img:productState?.images[0].url
   // };
@@ -87,11 +102,14 @@ const addRatingToPtoduct=()=>{
     return false
 
   }else{
-    dispatch(addRating({star:star,comment:comment,prodId:getProductId}))
-    // setTimeout(() => {
-    // dispatch(getAProduct(getProductId))
-      
-    // }, 300);
+    dispatch(addRating({star:star,comment:comment,prodId:getProductId,username:username}))
+    .then(() => {
+      dispatch(getAProduct(getProductId))
+    });
+  
+
+   
+
   }
 }
   return (
@@ -327,7 +345,7 @@ const addRatingToPtoduct=()=>{
                return(
                 <div key={index} className="review">
                 <div className="d-flex gap-10 align-items-center">
-                  {/* <h6 className="mb-0">Navdeep</h6> */}
+                   <h6 className="mb-0">{item?.username}</h6> 
                   <ReactStars
                     count={5}
                     size={24}
@@ -338,7 +356,7 @@ const addRatingToPtoduct=()=>{
                 </div>
                 <p className="mt-3">
                  {
-                  item.comment
+                  item?.comment
                  }
                 </p>
               </div>
@@ -366,7 +384,7 @@ const addRatingToPtoduct=()=>{
         brand={item.brand} 
         title={item.title} 
         price={item.price}
-        image={item.images[0].url}
+        image={item.images[0]?.url}
         tags={item.tags}
         id={item._id}
       />

@@ -27,9 +27,10 @@ const Addblog = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const getBlogId = location.pathname.split("/")[3];
-  const imgState = useSelector((state) => state.upload.images);
-  const bCatState = useSelector((state) => state.bCategory.bCategories);
-  const blogState = useSelector((state) => state.blogs);
+  const imgState = useSelector((state) => state?.upload?.images);
+  const bCatState = useSelector((state) => state?.bCategory?.bCategories);
+  const blogState = useSelector((state) => state?.blogs);
+  console.log(imgState,"hell");
   const {
     isSuccess,
     isError,

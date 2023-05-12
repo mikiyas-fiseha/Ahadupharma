@@ -44,14 +44,14 @@ console.log(orderState);
   for (let i = 0; i < orderState?.length; i++) {
     data1.push({
       key: i + 1,
-      name: orderState[i]?.user?.firstname,
+      name: orderState[i]?.shippinginfo?.firstName,
       product: (
         <Link to={`/admin/order/${orderState[i]?._id}`}>
           View Orders
         </Link>
       ),
       amount: orderState[i]?.totalPrice,
-      date: new Date(orderState[i].createdAt).toLocaleString(),
+      date: new Date(orderState[i]?.createdAt).toLocaleString(),
       action: (
         <>
            <select name="" defaultValue={orderState[i]?.orderStatus} onClick={(e)=>updateOrderStatus(orderState[i]?._id,e.target.value)} className="form-control form-select">

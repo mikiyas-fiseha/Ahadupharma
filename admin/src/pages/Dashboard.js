@@ -40,7 +40,7 @@ console.log(orderState);
   const [dataMonthly,setDateMonthly]=useState([])
   const [dataMonthlySales,setDateMonthlySales]=useState([])
   const [orderData,setOrderData]=useState([])
-
+console.log(orderData,'orderdata');
 
 useEffect(() => {
  dispatch(getMonthlyData())
