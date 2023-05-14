@@ -27,6 +27,7 @@ import { OpenRoutes } from './routing/OpenRoutes';
 import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import UserInfo from './pages/UserInfo';
+import Test from './pages/Test';
 function App() {
   return (
     <>
@@ -37,6 +38,8 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="product" element={<OurStore />} />
+            <Route path="/test" element={<Test />} />
+
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path='/cart' element={<PrivateRoutes><Cart /></PrivateRoutes>} />
             <Route path='/my-orders' element={<PrivateRoutes><Orders /></PrivateRoutes>} />

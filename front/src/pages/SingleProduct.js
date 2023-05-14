@@ -112,6 +112,19 @@ const addRatingToPtoduct=()=>{
 
   }
 }
+
+const [activeSection, setActiveSection] = useState('description');
+
+const toggleSection = (section) => {
+  if (activeSection !== 'description' || section !== 'description') {
+    setActiveSection(section);
+  }
+};
+
+const isSectionActive = (section) => {
+  return activeSection === section;
+};
+
   return (
     <>
       <Meta title={productState?.title} />
@@ -182,14 +195,23 @@ const addRatingToPtoduct=()=>{
                   <p className="product-data">   {productState&&productState?.category}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Tags :</h3>
-                  <p className="product-data">Watch</p>
+                  <h3 className="product-heading">Prescription :</h3>
+                  <p className="product-data">{productState&&productState?.prescriptionRequired?"Required":"Not Required"}</p>
+                </div>
+                
+                <div className="d-flex gap-10 align-items-center my-2">
+                  <h3 className="product-heading">Dosage Form :</h3>
+                  <p className="product-data">{productState&&productState?.dosageForm}</p>
+                </div>
+                <div className="d-flex gap-10 align-items-center my-2">
+                  <h3 className="product-heading">Expiry Date:</h3>
+                  <p className="product-data">{productState&&productState?.expiryDate?.split('T')[0]}</p>
                 </div>
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Availablity :</h3>
                   <p className="product-data">In Stock</p>
                 </div>
-                <div className="d-flex gap-10 flex-column mt-2 mb-3">
+                {/* <div className="d-flex gap-10 flex-column mt-2 mb-3">
                   <h3 className="product-heading">Size :</h3>
                   <div className="d-flex flex-wrap gap-15">
                     <span className="badge border border-1 bg-white text-dark border-secondary">
@@ -205,11 +227,8 @@ const addRatingToPtoduct=()=>{
                       XXL
                     </span>
                   </div>
-                </div>
-                <div className="d-flex gap-10 flex-column mt-2 mb-3">
-                  <h3 className="product-heading">Color :</h3>
-                  <Color />
-                </div>
+                </div> */}
+                
                 <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
                {
                 alreadyadded===false &&<>
@@ -267,7 +286,7 @@ const addRatingToPtoduct=()=>{
           </div>
         </div>
       </Container>
-      <Container class1="description-wrapper py-5 home-wrapper-2">
+      {/* <Container class1="description-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h4>Description</h4>
@@ -280,7 +299,35 @@ const addRatingToPtoduct=()=>{
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
+       <Container class1="description-wrapper py-5 home-wrapper-2">
+       <h2>Product Details</h2>
+      <div className="d-flex">
+        <div
+          className={`section-title ${isSectionActive('description') ? 'actives' : ''}`}
+          onClick={() => toggleSection('description')}
+        >
+          Description
+        </div>
+        <div
+          className={`section-title ${isSectionActive('instruction') ? 'actives' : ''}`}
+          onClick={() => toggleSection('instruction')}
+        >
+          Instruction
+        </div>
+        <div
+          className={`section-title ${isSectionActive('composition') ? 'actives' : ''}`}
+          onClick={() => toggleSection('composition')}
+        >
+          Composition
+        </div>
+      </div>
+      <div className="content">
+        {isSectionActive('description') && <p dangerouslySetInnerHTML={{__html:productState&&productState?.description}}></p>}
+        {isSectionActive('instruction') && <p dangerouslySetInnerHTML={{__html:productState&&productState?.instruction}}></p>}
+        {isSectionActive('composition') && <p dangerouslySetInnerHTML={{__html:productState&&productState?.composition}}></p>}
+      </div>
+    </Container>
       <Container class1="reviews-wrapper home-wrapper-2">
         <div className="row">
           <div className="col-12">

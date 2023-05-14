@@ -122,6 +122,14 @@ export const productSlice = createSlice({
          
         state.ProductColor = action.payload.color;
         state.ProductQuantity = action.payload.quantity;
+
+        state.Productinstruction = action.payload.instruction;
+        state.Productcomposition = action.payload.composition;
+        state.ProductexpiryDate = action.payload.expiryDate;
+        state.ProductprescriptionRequired = action.payload.prescriptionRequired;
+        state.ProductdosageForm = action.payload.dosageForm;
+
+
         state.Productimages = action.payload.images;
 
       })

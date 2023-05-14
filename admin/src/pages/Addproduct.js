@@ -18,6 +18,13 @@ import { createProducts, getAProduct, resetState, updateAProduct } from "../feat
 let schema = yup.object().shape({
   title: yup.string().required("Title is Required"),
   description: yup.string().required("Description is Required"),
+  //add
+  instruction: yup.string().required("Instruction is Required"),
+  composition: yup.string().required("Composition is Required"),
+  expiryDate: yup.string().required("Expiry Date is Required"),
+  prescriptionRequired: yup.string().required("This Fild is Required"),
+  dosageForm: yup.string().required("This Fild is Required"),
+  //
   price: yup.number().required("Price is Required"),
   brand: yup.string().required("Brand is Required"),
   category: yup.string().required("Category is Required"),
@@ -68,8 +75,13 @@ ProductTags,
 ProductColor,
 ProductQuantity,
 Productimages,
+Productinstruction,
+Productcomposition,
+ProductexpiryDate,
+ProductprescriptionRequired,
+ProductdosageForm,
 } = newProduct;
-
+console.log(ProductexpiryDate,'ProductexpiryDate');
   useEffect(() => {
     if (isSuccess && createdProduct) {
       toast.success("Product Added Successfullly!");
@@ -114,7 +126,12 @@ Productimages,
       tags:ProductTags || "",
       color:ProductColor || "",
       quantity:ProductQuantity || "",
-      images:images||  "",
+      images:Productimages||  "",
+      instruction :Productinstruction||"",
+      composition :Productcomposition||"",
+      expiryDate :ProductexpiryDate||"",
+      prescriptionRequired :ProductprescriptionRequired||"",
+      dosageForm :ProductdosageForm||"",
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -164,9 +181,12 @@ Productimages,
             {formik.touched.title && formik.errors.title}
           </div>
           <div className="">
+
             <ReactQuill
               theme="snow"
               name="description"
+              placeholder="Enter Description"
+
               onChange={formik.handleChange("description")}
               value={formik.values.description}
             />
@@ -174,6 +194,78 @@ Productimages,
           <div className="error">
             {formik.touched.description && formik.errors.description}
           </div>
+
+          <div className="">
+            <ReactQuill
+              theme="snow"
+              name="instruction"
+           
+              placeholder="Enter instruction"
+              onChange={formik.handleChange("instruction")}
+              value={formik.values.instruction}
+            />
+          </div>
+          <div className="error">
+            {formik.touched.instruction && formik.errors.instruction}
+          </div>
+
+          <div className="">
+
+            <ReactQuill
+              theme="snow"
+              name="composition"
+              placeholder="Enter composition"
+
+              onChange={formik.handleChange("composition")}
+              value={formik.values.composition}
+            />
+          </div>
+          <div className="error">
+            {formik.touched.composition && formik.errors.composition}
+          </div>
+          <CustomInput
+            type="date"
+            label="Enter Product Expiry Date"
+            name="expiryDate"
+            onChng={formik.handleChange("expiryDate")}
+            onBlr={formik.handleBlur("expiryDate")}
+            val={formik.values.expiryDate}
+          />
+          <div className="error">
+            {formik.touched.expiryDate && formik.errors.expiryDate}
+          </div>
+
+
+          <select
+            name="prescriptionRequired"
+            onChange={formik.handleChange("prescriptionRequired")}
+            onBlur={formik.handleBlur("prescriptionRequired")}
+            value={formik.values.prescriptionRequired}
+            className="form-control py-3 mb-3"
+            id=""
+          >
+            <option value="" >Select Productprescription Required</option>
+            <option value="true">true</option>
+            <option value="false">false</option>
+
+           
+          </select>
+          <div className="error">
+            {formik.touched.prescriptionRequired && formik.errors.prescriptionRequired}
+          </div>
+
+          <CustomInput
+            type="text"
+            label="Enter Product dosageForm"
+            name="dosageForm"
+            onChng={formik.handleChange("dosageForm")}
+            onBlr={formik.handleBlur("dosageForm")}
+            val={formik.values.dosageForm}
+          />
+          <div className="error">
+            {formik.touched.dosageForm && formik.errors.dosageForm}
+          </div>
+
           <CustomInput
             type="number"
             label="Enter Product Price"

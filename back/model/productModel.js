@@ -18,6 +18,26 @@ var productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    instruction: {
+      type: String,
+      required: true,
+    },
+    composition: {
+      type: String,
+      required: true,
+    },
+    expiryDate: {
+      type: Date,
+      required: true,
+    },
+    prescriptionRequired: {
+      type: Boolean,
+      required: true,
+    },
+    dosageForm: {
+      type: String,
+      required: true,
+    },
     price: {
       type: Number,
       required: true,
