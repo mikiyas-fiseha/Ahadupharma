@@ -55,7 +55,9 @@ const Addproduct = () => {
   const colorState = useSelector((state) => state?.color?.colors);
   const imgState = useSelector((state) => state?.upload?.images);
   const newProduct = useSelector((state) => state?.product);
-  //console.log(typeof(newProduct?.Productimages[0]));
+  // console.log(typeof(newProduct?.Productimages[0]));
+  console.log(brandState);
+
   const { isSuccess, isError, isLoading, createdProduct,updatedProduct,
 ProductName,
 ProductDesc,
