@@ -175,7 +175,7 @@ const isSectionActive = (section) => {
                     edit={false}
                     activeColor="#ffd700"
                   />
-                  <p className="mb-0 t-review">( 2 Reviews )</p>
+                  <p className="mb-0 t-review">{ productState&&productState?.totalrating?.length} Review</p>
                 </div>
                 <a className="review-btn" href="#review">
                   Write a Review
@@ -337,14 +337,14 @@ const isSectionActive = (section) => {
                 <div>
                   <h4 className="mb-2">Customer Reviews</h4>
                   <div className="d-flex align-items-center gap-10">
-                    <ReactStars
-                      count={5}
-                      size={24}
-                      value={4}
-                      edit={false}
-                      activeColor="#ffd700"
-                    />
-                    <p className="mb-0">Based on 2 Reviews</p>
+                  <ReactStars
+                    count={5}
+                    size={24}
+                    value=   {productState&&productState?.totalrating}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
+                  <p className="mb-0 t-review">Based on{ productState&&productState?.totalrating?.length} Review</p>
                   </div>
                 </div>
                 {orderedProduct && (

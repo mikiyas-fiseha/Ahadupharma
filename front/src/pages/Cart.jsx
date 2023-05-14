@@ -86,12 +86,12 @@ if(userCartState){
                     <img src={watch} className="img-fluid" alt="product image" />
                   </div>
                   <div className="w-75">
-                    <p>{item.productId.title}</p>
+                    <p>{item?.productId?.title}</p>
                     
                   </div>
                 </div>
                 <div className="cart-col-2">
-                  <h5 className="price">$ {item.price}</h5>
+                  <h5 className="price">$ {item?.price}</h5>
                 </div>
                 <div className="cart-col-3 d-flex align-items-center gap-15">
                   <div>
@@ -99,10 +99,10 @@ if(userCartState){
                    
                       className="form-control"
                       type="number"
-                      name={"quantity"+item._id}
+                      name={"quantity"+item?._id}
                       min={1}
                       max={10}
-                      id={"cart"+item._id}
+                      id={"cart"+item?._id}
                       value={item?.quantity}
                       onChange={(e)=>{setproductUpdateDetail({cartItemId:item._id,quantity:e.target.value})}}
                     />
