@@ -9,6 +9,9 @@ import * as yup from "yup"
 import axios from 'axios'
 import { config } from "../utils/axiosconfig";
 import { creatAnOrder } from "../features/user/userSlice";
+import Dropzone from "react-dropzone";
+import { delImg, uploadImg } from "../features/upload/uploadSlice";
+
 const shippingSchema = yup.object({
 firstName: yup.string().required("First Name is required"),
 lastName: yup.string().required("Last name is required"),
@@ -18,6 +21,7 @@ state: yup.string().required("State is required"),
 country: yup.string().required("Country is required"),
 pincode: yup.string().required("Pincode is required"),
 other:yup.string().required("other is required"),
+mobile:yup.string().required("mobile is required"),
 });
 const Checkout = () => {
   const dispatch=useDispatch()
@@ -25,10 +29,14 @@ const Checkout = () => {
   const [shippinginfo,setshippinginfo]=useState(null);
   const [paymentInfo,setPaymentInfo]=useState({razorpayPaymentId:"pay_Lere748iKXyzWc",razorpayOrderId:"pay_Lere748iKXyzWc"})
   const [cartProductState,setCartProductState]=useState([])
+  const [prescriptionrequreid,setPrescriptionRequired]=useState(null)
+
   const cartState=useSelector(state=>state.auth?.cartProducts)
+  const imgState = useSelector((state) => state?.upload?.images);
+
 
   //console.log(cartProductState,'cartProductState')
- //console.log(paymentInfo,"info")
+ console.log(cartState,"info")
 
 
   const formik = useFormik({
@@ -39,14 +47,19 @@ const Checkout = () => {
      city: '',
      state: '',
      country: '',
+     mobile:'',
     pincode: '',
     other: '',
+    images:'',
     },
     validationSchema:shippingSchema,
     onSubmit: values => {
      // alert(JSON.stringify(values, null, 2));
       setshippinginfo(values)
       //console.log(shippinginfo,"useshippinginfo")
+    
+    
+      alert(JSON.stringify(values));
 
       // setTimeout(()=>{
       //   checkOutHandler()
@@ -141,7 +154,18 @@ const Checkout = () => {
 
   }
 
- 
+  const img = [];
+  imgState.forEach((i) => {
+    img.push({
+      public_id: i.public_id,
+      url: i.url,
+    });
+  });
+
+  useEffect(() => {
+    //formik.values.color = color ? color : " ";
+    formik.values.images = img;
+  }, [ imgState]);
 
   
 useEffect(()=>{
@@ -153,13 +177,22 @@ useEffect(()=>{
      }
   }
   },[cartState])
+
+
+ useEffect(() => {
+  if (cartState) {
+    const hasPrescriptionRequired = cartState.some(item => item.productId.prescriptionRequired === true);
+    setPrescriptionRequired(hasPrescriptionRequired);
+  }
+}, [cartState]);
+
   return (
     <>
       <Container class1="checkout-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-7">
             <div className="checkout-left-data">
-              <h3 className="website-name">Dev Corner</h3>
+              <h3 className="website-name">Mikiyas</h3>
               <nav
                 style={{ "--bs-breadcrumb-divider": ">" }}
                 aria-label="breadcrumb"
@@ -192,7 +225,7 @@ useEffect(()=>{
               </nav>
               <h4 className="title total">Contact Information</h4>
               <p className="user-details total">
-                Navdeep Dahiya (monud0232@gmail.com)
+                Mikiyas Fiseha (mikiyasfiseha097@gmail.com)
               </p>
               <h4 className="mb-3">Shipping Address</h4>
               <form
@@ -269,6 +302,20 @@ useEffect(()=>{
                 <div className="w-100">
                   <input
                     type="text"
+                    placeholder="Phone Number"
+                    className="form-control"
+                    name="mobile"
+                    value={formik.values.mobile}
+                    onChange={formik.handleChange("mobile")}
+                    onBlur={formik.handleBlur("mobile")}
+                  />
+                  <div className="error ms-2 my-1">
+                 {formik.touched.mobile && formik.errors.mobile}
+                  </div>
+                </div>
+                <div className="w-100">
+                  <input
+                    type="text"
                     placeholder="Apartment, Suite ,etc"
                     className="form-control"
                     name="other"
@@ -334,7 +381,45 @@ useEffect(()=>{
                   <div className="error ms-2 my-1">
                  {formik.touched.pincode && formik.errors.pincode}
                   </div>
-                </div>
+                  </div>
+
+                  {
+                    prescriptionrequreid?<>       <div className="bg-white border-1 p-5 text-center">
+                    <Dropzone
+                      onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
+                    >
+                      {({ getRootProps, getInputProps }) => (
+                        <section>
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <p>
+                              Drag 'n' drop some files here, or click to select files
+                            </p>
+                          </div>
+                        </section>
+                      )}
+                    </Dropzone>
+                  </div>
+                  <div className="showimages d-flex flex-wrap gap-3">
+                    {imgState?.map((i, j) => {
+                      return (
+                        <div className=" position-relative" key={j}>
+                          <button
+                            type="button"
+                            onClick={() => dispatch(delImg(i.public_id))}
+                            className="btn-close position-absolute"
+                            style={{ top: "10px", right: "10px" }}
+                          ></button>
+                          <img src={i.url} alt="" width={200} height={200} />
+                        </div>
+                      );
+                    })}
+                  </div></>:""
+                  }
+           
+
+
+                
                 <div className="w-100">
                   <div className="d-flex justify-content-between align-items-center">
                     <Link to="/cart" className="text-dark">

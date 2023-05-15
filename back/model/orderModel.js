@@ -44,6 +44,16 @@ pincode:{
   required:true,
   
 },
+images: [
+  {
+    public_id: String,
+    url: String,
+  },
+],
+mobile:{
+  type:String,
+  required:true,
+}
 },
 
 paymentInfo:{
