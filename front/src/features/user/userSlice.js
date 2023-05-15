@@ -159,7 +159,7 @@ export const authSlice = createSlice({
         state.message = "success";
         state.createduser = action.payload;
         if(state.isSuccess===true){
-          toast.info("user created Successfuly")
+          toast.success("user created Successfuly")
         }
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -223,7 +223,7 @@ export const authSlice = createSlice({
         state.message = "success";
         state.cartProduct = action.payload;
         if(state.isSuccess===true){
-          toast.info("product add to cart Successfuly")
+          toast.success("product add to cart Successfuly")
         }
       
       })
@@ -232,6 +232,9 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.isLoading = false;
         state.message = action.error;
+        if(state.isError===true){
+          toast.error(action.payload.response.data.message)
+        }
        
       }).addCase(getUserCart.pending, (state) => {
         state.isLoading = true;

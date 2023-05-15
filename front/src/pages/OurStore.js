@@ -60,6 +60,19 @@ useEffect(()=>{
     const getProducts=()=>{
         dispatch(getAllProducts({sort,tag,brand,category,minprice,maxprice}))
     }
+
+
+    //pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 8;
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = productState?.slice(indexOfFirstProduct, indexOfLastProduct);
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+      };
+    
+      const totalPages = Math.ceil(productState.length / productsPerPage);
     return (
         <>
             <Meta title={"Our Store"} />
@@ -296,10 +309,33 @@ useEffect(()=>{
                             <div className="products-list pb-5">
                                 <div className="d-flex gap-10 flex-wrap">
                                     <ProductCard 
-                                    data={productState?productState:[]} 
+                                   data={currentProducts&&currentProducts}
                                     grid={grid} />
                                 </div>
                             </div>
+                            <div className="pagination">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i + 1}
+            onClick={() => handlePageChange(i + 1)}
+            className={currentPage === i + 1 ? 'active' : ''}
+          >
+            {i + 1}
+          </button>
+        ))}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
                         </div>
                     </div>
                 </div>

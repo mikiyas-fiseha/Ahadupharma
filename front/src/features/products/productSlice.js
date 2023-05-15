@@ -88,6 +88,9 @@ export const productSlice = createSlice({
         state.isSuccess = true;
         state.wishlist= action.payload;
         state.message = "product added to wishlist";
+        // if(state.isSuccess){
+        //   toast.success("Product Added To Wishlist")
+        // }
 
       
       })
@@ -96,6 +99,9 @@ export const productSlice = createSlice({
         state.isSuccess = false;
         state.isLoading = false;
         state.message = action.error;
+        if(state.isError===true){
+          toast.error(action.payload.response.data.message)
+        }
        
       }).addCase(getAProduct.pending, (state) => {
         state.isLoading = true;

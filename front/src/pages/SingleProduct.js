@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProdTOCart, getUserCart } from "../features/user/userSlice";
 import PopularProduct from "../components/PopularProduct";
 import { toast } from "react-toastify";
+import ImageMagnify from 'react-image-magnify';
+
 const SingleProduct = () => {
 
   const username = localStorage.getItem("customer")
@@ -124,6 +126,10 @@ const toggleSection = (section) => {
 const isSectionActive = (section) => {
   return activeSection === section;
 };
+const smallImage =productState?.images[0]?.url
+;
+const largeImage =productState?.images[0]?.url
+;
 
   return (
     <>
@@ -133,15 +139,31 @@ const isSectionActive = (section) => {
         <div className="row">
           <div className="col-6">
             <div className="main-product-image">
-              {/* <div>
-                <ReactImageZoom
-                 width={594}
-                 height={ 600}
-                 zoomWidth={600}
-             
-                 img={productState&&productState?.images[0].url }
-                 />
-              </div> */}
+              <div>
+              <ImageMagnify
+          {...{
+            smallImage: {
+              alt: 'Small Image',
+              src: smallImage,
+              width: 400, // Adjust the width of the small image as needed
+              height: 300, // Adjust the height of the small image as needed
+            },
+            largeImage: {
+              src: largeImage,
+              width: 1220, // Adjust the width of the large image as needed
+              height: 900, // Adjust the height of the large image as needed
+            },
+            enlargedImageContainerStyle: {
+              background: '#fff',
+              boxShadow: '0 0 5px rgba(0,0,0,.3)',
+              position: 'absolute',
+              right: 0,
+              zIndex: 9999,
+              marginLeft: '45px'
+            },
+          }}
+        />
+              </div>
             </div>
             <div className="other-product-images d-flex flex-wrap gap-15">
               {productState?.images&&productState?.images.map((item,index)=>{
