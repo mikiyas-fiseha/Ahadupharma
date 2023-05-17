@@ -8,7 +8,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrands } from "../features/brand/brandSlice";
-import { getCategories } from "../features/pcategory/pcategorySlice";
+import { getCategories, getsubbyname } from "../features/pcategory/pcategorySlice";
 import { getColors } from "../features/color/colorSlice";
 import { Select } from "antd";
 import Dropzone from "react-dropzone";
@@ -24,6 +24,7 @@ let schema = yup.object().shape({
   expiryDate: yup.string().required("Expiry Date is Required"),
   prescriptionRequired: yup.string().required("This Fild is Required"),
   dosageForm: yup.string().required("This Fild is Required"),
+  subcategory:yup.string().required("This Fild is Required"),
   //
   price: yup.number().required("Price is Required"),
   brand: yup.string().required("Brand is Required"),
@@ -40,6 +41,8 @@ const Addproduct = () => {
   const getProductId = location.pathname.split("/")[3];
   const [color, setColor] = useState([]);
   const [images, setImages] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  console.log(selectedCategory,"selectedCategory");
   //console.log(color);
   useEffect(() => {
     if (getProductId !== undefined) {
@@ -159,6 +162,19 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
     setColor(e);
    // console.log(color);
   };
+  //for category
+  const handleCategoryChange = (event) => {
+    const selectedValue = event.target.value;
+    formik.handleChange("category")(event); // Invoke formik.handleChange
+    setSelectedCategory(selectedValue); // Set selected category
+  };
+  useEffect(()=>{
+dispatch(getsubbyname(selectedCategory))
+  },[selectedCategory])
+
+  const subcatState = useSelector((state) => state?.pCategory?.categoryByName?.subcategories);
+  
+  // console.log(subcatState?.subcategories?.map((i)=>console.log(i.name)),"subcatState");
   return (
     <div>
       <h3 className="mb-4 title">
@@ -286,7 +302,7 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
             id=""
           >
             <option value="">Select Brand</option>
-            {brandState.map((i, j) => {
+            {brandState?.map((i, j) => {
               return (
                 <option key={j} value={i.title}>
                   {i.title}
@@ -299,14 +315,14 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
           </div>
           <select
             name="category"
-            onChange={formik.handleChange("category")}
-            onBlur={formik.handleBlur("category")}
+            onChange={handleCategoryChange}
+           onBlur={formik.handleBlur("category")}
             value={formik.values.category}
             className="form-control py-3 mb-3"
             id=""
           >
             <option value="">Select Category</option>
-            {catState.map((i, j) => {
+            {catState?.map((i, j) => {
               return (
                 <option key={j} value={i.title}>
                   {i.title}
@@ -314,8 +330,28 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
               );
             })}
           </select>
+
+          <select
+            name="subcategory"
+            onChange={formik.handleChange("subcategory")}
+
+           onBlur={formik.handleBlur("subcategory")}
+            value={formik.values.subcategory}
+            className="form-control py-3 mb-3"
+            id=""
+          >
+            <option value="">Select subcategory</option>
+            {subcatState&&subcatState?.map((i, j) => {
+              return (
+                <option key={j} value={i.name}>
+                  {i.name}
+                </option>
+              );
+            })}
+          </select>
+
           <div className="error">
-            {formik.touched.category && formik.errors.category}
+            {formik.touched.subcategory && formik.errors.subcategory}
           </div>
           <select
             name="tags"
@@ -326,7 +362,7 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
             id=""
           >
             <option value="" disabled>
-              Select Category
+              Select Tag
             </option>
             <option value="featured">Featured</option>
             <option value="popular">Popular</option>
@@ -335,7 +371,7 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
           <div className="error">
             {formik.touched.tags && formik.errors.tags}
           </div>
-
+          
           <Select
             mode="multiple"
             allowClear

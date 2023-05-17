@@ -7,6 +7,8 @@ const dotenv=require("dotenv").config()
 const authRoute=require("./routes/authRoute")
 const blogRoute=require("./routes/blogRoute")
 const categoryRoute=require("./routes/prodcategoryRoute")
+const subcategoryRoute=require("./routes/subcategoryRoute")
+
 const productRoute=require("./routes/productRoute")
 const blogcategoryRouter=require("./routes/blogCatRoute")
 const colorRouter = require("./routes/colorRoute");
@@ -38,6 +40,7 @@ app.use("/api/coupon",couponRouter)
 app.use("/api/upload",uploadRouter)
 app.use("/api/color", colorRouter);
 app.use("/api/enquiry", enqRouter);
+app.use("/api/subcategory",subcategoryRoute)
 
 
 

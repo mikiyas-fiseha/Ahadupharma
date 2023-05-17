@@ -9,7 +9,12 @@ var prodcategorySchema = new mongoose.Schema(
       unique: true,
       index: true,
     },
+    subcategories: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'SubCategory',
+    }],
   },
+  
   {
     timestamps: true,
   }

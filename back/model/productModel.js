@@ -44,12 +44,18 @@ var productSchema = new mongoose.Schema(
     },
     category: {
       type: String,
+      ref: "PCategory",
       required: true,
+    },
+    subcategory: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SubCategory", // Reference to the SubCategory model
     },
     brand: {
       type: String,
       required: true,
     },
+    
     quantity: {
       type: Number,
       required: true,

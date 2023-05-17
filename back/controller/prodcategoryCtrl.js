@@ -42,9 +42,25 @@ const getCategory = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+const findCategoryByName = async (req, res) => {
+  const { categoryName } = req.body;
+console.log(categoryName);
+  try {
+    const category = await Category.findOne({ title: categoryName }).populate('subcategories');
+
+    if (!category) {
+      return res.status(404).json({ success: false, message: 'Category not found' });
+    }
+
+    res.status(200).json( category );
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
 const getallCategory = asyncHandler(async (req, res) => {
   try {
-    const getallCategory = await Category.find();
+    const getallCategory = await Category.find().populate('subcategories');
     res.json(getallCategory);
   } catch (error) {
     throw new Error(error);
@@ -56,4 +72,5 @@ module.exports = {
   deleteCategory,
   getCategory,
   getallCategory,
+  findCategoryByName
 };

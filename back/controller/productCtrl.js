@@ -1,31 +1,56 @@
 const Product=require("../model/productModel")
 const fs = require("fs");
 const User=require("../model/userModel")
+const SubCategory=require("../model/subCategorySchema")
+
 const asyncHandler=require("express-async-handler")
 const slugify =require("slugify")
 const {cloudinaryUploadImg}=require("../utils/cloudinary")
 const { json } = require("body-parser")
 
 
-const creatProduct=asyncHandler(async(req,res)=>{
-    try {
-        if(req.body.title){
-            req.body.slug=slugify(req.body.title)
-        }
-        const newProduct= await Product.create(req.body)
-        res.json(newProduct)
-    } catch (error) {
-        throw new Error(error)
+// const creatProduct=asyncHandler(async(req,res)=>{
+//     try {
+//         if(req.body.title){
+//             req.body.slug=slugify(req.body.title)
+//         }
+//         const newProduct= await Product.create(req.body)
+//         res.json(newProduct)
+//     } catch (error) {
+//         throw new Error(error)
+//     }
+
+// })
+const creatProduct = asyncHandler(async (req, res) => {
+  try {
+    if (req.body.title) {
+      req.body.slug = slugify(req.body.title);
     }
 
-})
+    // Retrieve the subcategory ObjectId based on its name
+    const subcategory = await SubCategory.findOne({ name: req.body.subcategory });
+
+    if (!subcategory) {
+      return res.status(404).json({ success: false, message: 'Subcategory not found' });
+    }
+
+    // Add the subcategory ObjectId to the product's subcategory field
+    req.body.subcategory = subcategory._id;
+
+    const newProduct = await Product.create(req.body);
+    res.json(newProduct);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 
 //get a product
 const getaProduct=asyncHandler(async(req,res)=>{
     const {id}=req.params
     
 
-    const findProduct=await Product.findById(id)
+    const findProduct=await Product.findById(id).populate("subcategory")
     res.json(findProduct)
 })
 

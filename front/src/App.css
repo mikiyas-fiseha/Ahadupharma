@@ -947,3 +947,96 @@ border-radius: 0px;
   background-color: #999;
   color: white;
 }
+
+
+
+
+/* test */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.navbar-logo a {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-links a {
+  position: relative;
+  padding: 10px;
+  margin: 0 5px;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.navbar-dropdown:hover .navbar-submenu {
+  display: block;
+}
+
+.navbar-submenu a {
+  display: block;
+  margin: 5px 0;
+}
+
+.navbar-toggle {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-icon {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  transition: transform 0.3s;
+}
+
+.navbar-icon::before,
+.navbar-icon::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  transition: transform 0.3s;
+}
+
+.open .navbar-icon {
+  transform: rotate(45deg);
+}
+
+.open .navbar-icon::before {
+  transform: rotate(-45deg) translate(-5px, 0);
+}
+
+.open .navbar-icon::after {
+  transform: rotate(-45deg) translate(5px, 0);
+}
+

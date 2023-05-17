@@ -27,6 +27,7 @@ import ViewOrder from "./pages/ViewOrder";
 import { PrivateRoutes } from './routing/PrivateRoutes';
 import { OpenRoutes } from './routing/OpenRoutes';
 import Test from "./pages/Test";
+import AddSubCat from "./pages/AddSubCat";
 function App() {
   return (
     <Router>
@@ -59,7 +60,10 @@ function App() {
           <Route path="list-category" element={<Categorylist />} />
           <Route path="category" element={<Addcat />} />
           <Route path="category/:id" element={<Addcat />} />
+          <Route path="subcategory" element={<AddSubCat />} />
+
           <Route path="list-brand" element={<Brandlist />} />
+
           <Route path="brand" element={<Addbrand />} />
           <Route path="brand/:id" element={<Addbrand />} />
           <Route path="list-product" element={<Productlist />} />

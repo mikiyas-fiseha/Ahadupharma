@@ -13,6 +13,18 @@ const createCategory = async (category) => {
   return response.data;
 };
 
+const findCategoryByName = async (categoryName) => {
+  console.log(categoryName,"tittitti");
+  try {
+    const response = await axios.post(`${base_url}category/findbyname`, { categoryName }, config);
+    return response.data;
+  } catch (error) {
+    // Handle error
+    console.error(error);
+    throw error;
+  }
+};
+
 const getProductCategory = async (id) => {
   const response = await axios.get(`${base_url}category/${id}`, config);
 
@@ -40,6 +52,7 @@ const pCategoryService = {
   getProductCategory,
   deleteProductCategory,
   updateProductCategory,
+  findCategoryByName
 };
 
 export default pCategoryService;

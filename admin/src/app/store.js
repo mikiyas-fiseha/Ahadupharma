@@ -4,6 +4,8 @@ import customerReducer from "../features/cutomers/customerSlice";
 import productReducer from "../features/product/productSlice";
 import brandReducer from "../features/brand/brandSlice";
 import pCategoryReducer from "../features/pcategory/pcategorySlice";
+import subCategoryReducer from "../features/subcategory/subcategorySlice";
+
 import bCategoryReducer from "../features/bcategory/bcategorySlice";
 import blogReducer from "../features/blogs/blogSlice";
 import colorReducer from "../features/color/colorSlice";
@@ -17,6 +19,7 @@ export const store = configureStore({
     product: productReducer,
     brand: brandReducer,
     pCategory: pCategoryReducer,
+    subCategory:subCategoryReducer,
     bCategory: bCategoryReducer,
     blogs: blogReducer,
     color: colorReducer,

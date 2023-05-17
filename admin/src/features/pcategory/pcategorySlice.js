@@ -11,6 +11,16 @@ export const getCategories = createAsyncThunk(
     }
   }
 );
+export const getsubbyname = createAsyncThunk(
+  "productsubnameCategory/name-subcategories",
+  async (title,thunkAPI) => {
+    try {
+      return await pCategoryService.findCategoryByName(title);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 export const createCategory = createAsyncThunk(
   "productCategory/create-category",
   async (categoryData, thunkAPI) => {
@@ -137,6 +147,20 @@ export const pCategorySlice = createSlice({
         state.categoryName = action.payload.title;
       })
       .addCase(getAProductCategory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
+      }).addCase(getsubbyname.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getsubbyname.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.categoryByName = action.payload;
+      })
+      .addCase(getsubbyname.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
