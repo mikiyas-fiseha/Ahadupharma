@@ -3,9 +3,18 @@ import { base_url } from "../../utils/baseUrl";
 
 import { config } from "../../utils/axiosconfig";
 
+// const getProducts=async(data)=>{
+//     console.log(data,'filter');
+//     const respons=await axios.get(`${base_url}product?${data?.brand?`brand=${data?.brand}&&`:""}${data?.tag?`tags=${data?.tag}&&`:""}${data?.category?`category=${data?.category}&&`:""}${data?.minprice?`price[gte]=${data?.minprice}&&`:""}${data?.maxprice?`price[lte]=${data?.maxprice}&&`:""}${data?.sort?`sort=${data?.sort}&&`:""}`)
+//     if(respons.data){
+//         return respons.data
+//     }
+   
+// }
+
 const getProducts=async(data)=>{
     console.log(data,'filter');
-    const respons=await axios.get(`${base_url}product?${data?.brand?`brand=${data?.brand}&&`:""}${data?.tag?`tags=${data?.tag}&&`:""}${data?.category?`category=${data?.category}&&`:""}${data?.minprice?`price[gte]=${data?.minprice}&&`:""}${data?.maxprice?`price[lte]=${data?.maxprice}&&`:""}${data?.sort?`sort=${data?.sort}&&`:""}`)
+    const respons=await axios.get(`${base_url}product?${data?.brand?`brand=${data?.brand}&&`:""}${data?.tag?`tags=${data?.tag}&&`:""}${data?.category?`category=${data?.category}&&`:""}${data?.subcategory?`subcategory=${data?.subcategory}&&`:""}${data?.minprice?`price[gte]=${data?.minprice}&&`:""}${data?.maxprice?`price[lte]=${data?.maxprice}&&`:""}${data?.sort?`sort=${data?.sort}&&`:""}`)
     if(respons.data){
         return respons.data
     }

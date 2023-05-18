@@ -28,6 +28,7 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import UserInfo from './pages/UserInfo';
 import Test from './pages/Test';
+import SubCateProduct from './pages/SubCateProduct';
 function App() {
   return (
     <>
@@ -39,6 +40,8 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path="product" element={<OurStore />} />
             <Route path="/test" element={<Test />} />
+            
+            <Route path="sub-products/:id" element={<SubCateProduct />} />
 
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path='/cart' element={<PrivateRoutes><Cart /></PrivateRoutes>} />

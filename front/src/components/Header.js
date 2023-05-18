@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { getAllProducts, getAProduct } from "../features/products/productSlice";
+import Menu from '../navbar/Menu'
+
 const Header = () => {
   const dispatch=useDispatch()
   const navigate=useNavigate()
@@ -154,6 +156,8 @@ const Header = () => {
           </div>
         </div>
       </header>
+         <Menu/>
+         
       <header className="header-bottom py-3">
         <div className="container-xxl">
           <div className="row">

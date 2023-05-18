@@ -74,7 +74,7 @@ export const subCategorySlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.pCategories = action.payload;
+        state.subCategories = action.payload;
       })
       .addCase(getSubCategories.rejected, (state, action) => {
         state.isLoading = false;

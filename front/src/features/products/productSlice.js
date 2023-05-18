@@ -9,6 +9,7 @@ import productService from "./productService";
     export const getAllProducts=createAsyncThunk(
       "product/get" ,
       async(data,thunkAPI)=>{
+        console.log(data,"fi");
           try {
               return await productService.getProducts(data)
           } catch (error) {

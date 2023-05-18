@@ -15,7 +15,7 @@ const addSubCategory = async (req, res) => {
       }
   
       // Create the subcategory
-      const subcategory = new SubCategory({ name, Category: category._id });
+      const subcategory = new SubCategory({ name, category: category._id });//Categoty befor
       await subcategory.save();
   
       // Associate the subcategory with the parent category
@@ -80,14 +80,14 @@ const updateSubCategory = async (req, res) => {
       res.json(subcategory);
     } catch (error) {
       console.error("Error retrieving subcategory:", error);
-      res.status(500).json({ error: "An error occurred" });
+      res.status(500).json(error);
     }
   };
   
   // Get all subcategories
   const getAllSubCategories = async (req, res) => {
     try {
-      const subcategories = await SubCategory.find();
+      const subcategories = await SubCategory.find()
       res.json(subcategories);
     } catch (error) {
       console.error("Error retrieving subcategories:", error);

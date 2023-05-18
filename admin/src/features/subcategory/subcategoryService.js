@@ -3,8 +3,8 @@ import { base_url } from "../../utils/baseUrl";
 import { config } from "../../utils/axiosconfig";
 
 const getProductSubCategories = async () => {
-  const response = await axios.get(`${base_url}category/`);
-
+  const response = await axios.get(`${base_url}subcategory/`,config);
+console.log(response);
   return response.data;
 };
 const createSubCategory = async (category) => {

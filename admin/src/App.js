@@ -28,6 +28,7 @@ import { PrivateRoutes } from './routing/PrivateRoutes';
 import { OpenRoutes } from './routing/OpenRoutes';
 import Test from "./pages/Test";
 import AddSubCat from "./pages/AddSubCat";
+import SubCategorylist from "./pages/SubCategorylist";
 function App() {
   return (
     <Router>
@@ -58,6 +59,8 @@ function App() {
           <Route path="color" element={<Addcolor />} />
           <Route path="color/:id" element={<Addcolor />} />
           <Route path="list-category" element={<Categorylist />} />
+          <Route path="list-subcategory" element={<SubCategorylist />} />
+
           <Route path="category" element={<Addcat />} />
           <Route path="category/:id" element={<Addcat />} />
           <Route path="subcategory" element={<AddSubCat />} />

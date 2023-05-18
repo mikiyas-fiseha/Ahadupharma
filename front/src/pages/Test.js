@@ -91,36 +91,19 @@
 
 
 import React, { useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import Menu from '../navbar/Menu'
 const Test = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleNavbar = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
-    <Dropdown>
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-        Menu
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#home">Home</Dropdown.Item>
-        <Dropdown.Item href="#about">About</Dropdown.Item>
-        <Dropdown.Item href="#services">Services</Dropdown.Item>
-        <Dropdown.Item href="#contact">Contact</Dropdown.Item>
-        <Dropdown.Item href="#more">More</Dropdown.Item>
-        <Dropdown.Item href="#submenus" className="dropdown-submenu">
-          Submenus
-          <Dropdown.Menu>
-            <Dropdown.Item href="#submenu1">Submenu 1</Dropdown.Item>
-            <Dropdown.Item href="#submenu2">Submenu 2</Dropdown.Item>
-            <Dropdown.Item href="#submenu3">Submenu 3</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+ <>
+   {/* <Menu/> */}
+ek
+ </>
   );
 };
 
