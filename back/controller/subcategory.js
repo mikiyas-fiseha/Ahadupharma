@@ -87,7 +87,7 @@ const updateSubCategory = async (req, res) => {
   // Get all subcategories
   const getAllSubCategories = async (req, res) => {
     try {
-      const subcategories = await SubCategory.find()
+      const subcategories = await SubCategory.find().populate("category")
       res.json(subcategories);
     } catch (error) {
       console.error("Error retrieving subcategories:", error);
