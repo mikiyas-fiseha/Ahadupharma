@@ -35,19 +35,17 @@ const Dashboard = () => {
   const monthlydDataState = useSelector((state) => state?.auth?.monthlyData);
   const yearlyDataState = useSelector((state) => state?.auth?.yearlyData);
   const orderState = useSelector((state) => state?.auth?.orders?.orders);
-console.log(orderState);
 
   const [dataMonthly,setDateMonthly]=useState([])
   const [dataMonthlySales,setDateMonthlySales]=useState([])
   const [orderData,setOrderData]=useState([])
-console.log(orderData,'orderdata');
 
+  console.log(yearlyDataState,'yearlyDataState');
 useEffect(() => {
  dispatch(getMonthlyData())
  dispatch(getYearlyData())
  dispatch(getOrders())
 }, [])
-console.log(monthlydDataState,'s');
 
 useEffect(() => {
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -72,10 +70,11 @@ for (let i = 0; i < orderState?.length; i++) {
 }
 setOrderData(data1)
 }
-console.log(data);
 
  },[monthlydDataState])
  
+
+ console.log(dataMonthly);
   
   const config = {
     data:dataMonthly,
@@ -143,7 +142,7 @@ console.log(data);
         <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
             <p className="desc">Total Income</p>
-            {/* <h4 className="mb-0 sub-title">${yearlyDataState&&yearlyDataState[0]?.amount}</h4> */}
+            <h4 className="mb-0 sub-title">${yearlyDataState&&yearlyDataState[0]?.amount}</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
             {/* <h6>
@@ -155,7 +154,7 @@ console.log(data);
         <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
             <p className="desc">Total Sales</p>
-            {/* <h4 className="mb-0 sub-title">{yearlyDataState&&yearlyDataState[0]?.count}</h4> */}
+            <h4 className="mb-0 sub-title">{yearlyDataState&&yearlyDataState[0]?.count}</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
             {/* <h6 className="red">

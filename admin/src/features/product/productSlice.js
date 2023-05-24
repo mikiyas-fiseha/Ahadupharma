@@ -128,9 +128,10 @@ export const productSlice = createSlice({
         state.ProductexpiryDate = action.payload.expiryDate;
         state.ProductprescriptionRequired = action.payload.prescriptionRequired;
         state.ProductdosageForm = action.payload.dosageForm;
+        state.ProductSubcategory = action.payload.subcategory?.name;
 
 
-        state.Productimages = action.payload.images;
+        state.Productimages = action.payload.images[0]?.url;
 
       })
       .addCase(getAProduct.rejected, (state, action) => {

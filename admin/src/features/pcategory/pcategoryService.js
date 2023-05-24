@@ -17,6 +17,7 @@ const findCategoryByName = async (categoryName) => {
   console.log(categoryName,"tittitti");
   try {
     const response = await axios.post(`${base_url}category/findbyname`, { categoryName }, config);
+    console.log(response);
     return response.data;
   } catch (error) {
     // Handle error

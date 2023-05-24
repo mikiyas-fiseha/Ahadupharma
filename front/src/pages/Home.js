@@ -208,7 +208,7 @@ useEffect(()=>{
         
         {
                    productState && productState?.map((item,index)=>{
-  if (item.tags === "featured" && counter < 4) {
+  if (item.tags === "featured" && counter < 8) {
     counter++;
     return (
       <FeaturedProduct key={index}

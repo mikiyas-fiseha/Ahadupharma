@@ -22,9 +22,9 @@ const AddSubCat = () => {
   const location = useLocation();
   const getPCatId = location.pathname.split("/")[3];
   const navigate = useNavigate();
-  const newCategory = useSelector((state) => state.subCategory);
+  const newsubCategory = useSelector((state) => state.subCategory);
   useEffect(() => {
-    dispatch(resetState())
+    //dispatch(resetState())
   
     dispatch(getCategories());
  
@@ -39,7 +39,8 @@ console.log(catState);
     createdsubCategory,
     subcategoryName,
     updatedsubCategory,
-  } = newCategory;
+    categoryName
+  } = newsubCategory;
   useEffect(() => {
     if (getPCatId !== undefined) {
       dispatch(getAProductSubCategory(getPCatId));
@@ -49,11 +50,11 @@ console.log(catState);
   }, [getPCatId]);
   useEffect(() => {
     if (isSuccess && createdsubCategory) {
-      toast.success("Category Added Successfullly!");
+      toast.success("Sub Category Added Successfullly!");
     }
     if (isSuccess && updatedsubCategory) {
-      toast.success("Category Updated Successfullly!");
-      navigate("/admin/list-category");
+      toast.success("Sub Category Updated Successfullly!");
+      navigate("/admin/list-subcategory");
     }
     if (isError) {
       toast.error("Something Went Wrong!");
@@ -64,7 +65,7 @@ console.log(catState);
     enableReinitialize: true,
     initialValues: {
       name: subcategoryName || "",
-     
+      categoryName: categoryName || "",
     },
     
     validationSchema: schema,
@@ -77,18 +78,18 @@ console.log(catState);
         dispatch(resetState());
       } else {
         dispatch(createSubCategory(values));
-        alert(JSON.stringify(values));
-        formik.resetForm();
-        setTimeout(() => {
-          dispatch(resetState());
-        }, 300);
+        //alert(JSON.stringify(values));
+         formik.resetForm();
+        // setTimeout(() => {
+        //   dispatch(resetState());
+        // }, 300);
       }
     },
   });
   return (
     <div>
       <h3 className="mb-4  title">
-        {getPCatId !== undefined ? "Edit" : "Add"} Category
+        {getPCatId !== undefined ? "Edit" : "Add"} Sub Category
       </h3>
       <div>
         <form action="" onSubmit={formik.handleSubmit}>
@@ -128,7 +129,7 @@ console.log(catState);
             className="btn btn-success border-0 rounded-3 my-5"
             type="submit"
           >
-            {getPCatId !== undefined ? "Edit" : "Add"} Category
+            {getPCatId !== undefined ? "Edit" : "Add"} Sub Category
           </button>
         </form>
       </div>

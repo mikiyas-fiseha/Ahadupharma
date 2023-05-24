@@ -83,8 +83,10 @@ Productcomposition,
 ProductexpiryDate,
 ProductprescriptionRequired,
 ProductdosageForm,
+ProductSubcategory
 } = newProduct;
-console.log(ProductexpiryDate,'ProductexpiryDate');
+
+console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
   useEffect(() => {
     if (isSuccess && createdProduct) {
       toast.success("Product Added Successfullly!");
@@ -132,9 +134,11 @@ console.log(ProductexpiryDate,'ProductexpiryDate');
       images:Productimages||  "",
       instruction :Productinstruction||"",
       composition :Productcomposition||"",
-      expiryDate :ProductexpiryDate||"",
+      expiryDate :ProductexpiryDate?.split("T")[0]||"",
       prescriptionRequired :ProductprescriptionRequired||"",
       dosageForm :ProductdosageForm||"",
+      subcategory :ProductSubcategory||"",
+
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -174,7 +178,7 @@ dispatch(getsubbyname(selectedCategory))
 
   const subcatState = useSelector((state) => state?.pCategory?.categoryByName?.subcategories);
   
-  // console.log(subcatState?.subcategories?.map((i)=>console.log(i.name)),"subcatState");
+  console.log(subcatState?.subcategories?.map((i)=>console.log(i.name)),"subcatState");
   return (
     <div>
       <h3 className="mb-4 title">

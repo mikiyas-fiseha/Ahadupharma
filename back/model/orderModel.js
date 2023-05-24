@@ -102,7 +102,7 @@ totalPriceAfterDiscount:{
 },
 orderStatus:{
   type:String,
-  default:"ordered",
+  default:"Pending",
 },
 
   },

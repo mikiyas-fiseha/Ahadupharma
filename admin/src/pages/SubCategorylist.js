@@ -10,7 +10,7 @@ import {
   resetState,
 } from "../features/pcategory/pcategorySlice";
 import CustomModal from "../components/CustomModal";
-import { getSubCategories } from "../features/subcategory/subcategorySlice";
+import { deleteAProductSubCategory, getSubCategories } from "../features/subcategory/subcategorySlice";
 
 const columns = [
   {
@@ -61,7 +61,7 @@ const SubCategorylist = () => {
       action: (
         <>
           <Link
-            to={`/admin/category/${subCatStat[i]?._id}`}
+            to={`/admin/subcategory/${subCatStat[i]?._id}`}
             className=" fs-3 text-danger"
           >
             <BiEdit />
@@ -77,10 +77,10 @@ const SubCategorylist = () => {
     });
   }
   const deleteCategory = async(e) => {
-   await dispatch(deleteAProductCategory(e));
+   await dispatch(deleteAProductSubCategory(e));
     setOpen(false);
     setTimeout(() => {
-      dispatch(getCategories());
+      dispatch(getSubCategories());
     }, 100);
   };
   return (

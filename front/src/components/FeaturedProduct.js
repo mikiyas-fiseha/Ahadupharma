@@ -33,7 +33,7 @@ const FeaturedProduct = (props) => {
       >
         <div
           // to={`/product/${id}`}
-          className="product-card position-relative"
+          className="product-card position-relative mb-4"
         >
           <div className="wishlist-icon position-absolute">
           <button className="border-0 bg-transparent" onClick={(e)=>{addToWish(id)}}>

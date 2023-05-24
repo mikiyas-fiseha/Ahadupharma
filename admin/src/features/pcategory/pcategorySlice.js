@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import pCategoryService from "./pcategoryService";
 
 export const getCategories = createAsyncThunk(
@@ -121,6 +122,8 @@ export const pCategorySlice = createSlice({
         state.isError = true;
         state.isSuccess = false;
         state.message = action.error;
+        toast.error("Something went Wrong!")
+
       })
       .addCase(deleteAProductCategory.pending, (state) => {
         state.isLoading = true;
@@ -136,6 +139,8 @@ export const pCategorySlice = createSlice({
         state.isError = true;
         state.isSuccess = false;
         state.message = action.error;
+        toast.error("Something went Wrong!")
+
       })
       .addCase(getAProductCategory.pending, (state) => {
         state.isLoading = true;

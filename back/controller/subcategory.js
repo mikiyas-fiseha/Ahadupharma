@@ -1,4 +1,5 @@
 const Category = require("../model/prodcategoryModel");
+
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
 const SubCategory = require("../model/subCategorySchema");
@@ -87,7 +88,7 @@ const updateSubCategory = async (req, res) => {
   // Get all subcategories
   const getAllSubCategories = async (req, res) => {
     try {
-      const subcategories = await SubCategory.find().populate("category")
+      const subcategories = await SubCategory.find()
       res.json(subcategories);
     } catch (error) {
       console.error("Error retrieving subcategories:", error);

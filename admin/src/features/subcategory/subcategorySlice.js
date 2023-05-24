@@ -134,7 +134,9 @@ export const subCategorySlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.isSuccess = true;
-        state.subcategoryName = action.payload.title;
+        state.subcategoryName = action.payload.name;
+        state.categoryName = action.payload.category;
+
       })
       .addCase(getAProductSubCategory.rejected, (state, action) => {
         state.isLoading = false;

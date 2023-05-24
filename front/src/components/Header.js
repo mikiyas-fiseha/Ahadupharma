@@ -11,6 +11,7 @@ import { Typeahead } from 'react-bootstrap-typeahead'; // ES2015
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { getAllProducts, getAProduct } from "../features/products/productSlice";
 import Menu from '../navbar/Menu'
+import { getUserCart } from "../features/user/userSlice";
 
 const Header = () => {
   const dispatch=useDispatch()
@@ -27,6 +28,26 @@ const Header = () => {
 //   dispatch(getAllProducts())
 
 // },[productState])
+
+//add
+const getTokenFromLocalStorage = localStorage.getItem("customer")
+? JSON.parse(localStorage.getItem("customer"))
+: null;
+
+const config2 = {
+headers: {
+  Authorization: `Bearer ${
+    getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+  }`,
+  Accept: "application/json",
+},
+};
+
+useEffect(()=>{
+  dispatch(getUserCart(config2))
+  
+},[])
+// add
   useEffect(()=>{
     let sum=0
     
@@ -36,7 +57,7 @@ const Header = () => {
        }
     
     },[CartState])
-
+  console.log(CartState);
     useEffect(()=>{
       let data=[]
       for (let index = 0; index < productState?.length; index++) {

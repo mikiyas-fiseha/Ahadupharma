@@ -7,6 +7,7 @@ import watch from  "../components/images/watch.jpg"
 import { useDispatch, useSelector } from "react-redux";
 import { getUserProductWishlist } from "../features/user/userSlice";
 import { addTOWishlist } from "../features/products/productSlice";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const dispatch=useDispatch()
@@ -29,12 +30,12 @@ const Wishlist = () => {
     <>
       <Meta title={"Wishlist"} />
       <BreadCrumb title="Wishlist" />
-      <div class1="wishlist-wrapper home-wrapper-2 py-5 ">
+      <div class1="wishlist-wrapper featured-wrapper py-5 home-wrapper-2">
         <div className="container-xxl">
         <div className="row ">
-         {/* {
-          wishlistState.length===0 && <div className="nowishlist text-center fs-3 mb-5">noting in the wish list</div>
-         } */}
+         {
+          wishlistState?.length===0 && <div className="nowishlist text-center fs-3 mb-5">noting in the wish list</div>
+         }
         {
         wishlistState&& wishlistState?.map((item,index)=>{
           return(
@@ -59,6 +60,7 @@ const Wishlist = () => {
                 {item.title}
               </h5>
               <h6 className="price">$ {item.price}</h6>
+              <Link to={`/product/${item._id}`}><button className="button"  >Detail</button></Link>
             </div>
           </div>
         </div>
