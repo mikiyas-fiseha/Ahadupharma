@@ -138,7 +138,7 @@ const columns = [
     onFilter: (value, record) => record.name.toLowerCase().includes(value.toLowerCase()),
     onFilterDropdownVisibleChange: (visible) => {
       if (visible) {
-        setTimeout(() => this.searchInput.select());
+        setTimeout(() => this?.searchInput.select());
       }
     },
     render: (text) => <span>{text}</span>,

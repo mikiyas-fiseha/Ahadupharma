@@ -1039,4 +1039,35 @@ border-radius: 0px;
 .open .navbar-icon::after {
   transform: rotate(-45deg) translate(5px, 0);
 }
+.banner-image {
+  
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .banner-image {
+    height: 400px; /* Set the desired height for the images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
+  .banner-image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+.card-img-top {
+  transition: transform 0.3s;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  border: none; /* Remove the border from the card */
+}

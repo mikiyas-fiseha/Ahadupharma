@@ -108,7 +108,7 @@ const updateproduct = asyncHandler(async (req, res) => {
     if (req.body.title) {
       req.body.slug = slugify(req.body.title);
     }
-    const updatedProduct = await Product.findOneAndUpdate({ _id: id }, req.body, { new: true });
+    const updatedProduct = await Product.findOneAndUpdate({ _id: id }, req.body, { new: true }).populate('subcategory');
    
     res.json(updatedProduct);
   } catch (error) {

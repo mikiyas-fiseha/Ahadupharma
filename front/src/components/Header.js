@@ -71,10 +71,10 @@ useEffect(()=>{
     //   localStorage.clear()
     //   window.location.reload()
     // }
-    
+    const isMobile = window.innerWidth <= 768;
   return (
     <>
-      <header className="header-top-strip py-3">
+      <header className="header-top-strip py-3 d-none d-md-block">
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -95,56 +95,38 @@ useEffect(()=>{
       </header>
       <header className="header-upper py-3">
         <div className="container-xxl">
-          <div className="row align-items-center">
-            <div className="col-2">
+          <div className="row align-items-center justify-content-center">
+            {/* logo */}
+            <div className="col-sm-6 col-lg-2 div1 order-1 order-md-1 d-none d-md-block">
               <h2>
-                <Link className="text-white">Ahadu</Link>
+                <Link className="text-white logo">Ahadu</Link>
               </h2>
             </div>
-            <div className="col-5">
-              <div className="input-group">
-              <Typeahead
-        id="pagination-example"
-        onPaginate={() => console.log('Results paginated')}
-        onChange={(selected)=>{
-          navigate(`/product/${selected[0]?.prod}`)
-          dispatch(getAProduct(selected[0]?.prod))
-        }}
-        options={productOtp}
-        paginate={paginate}
-        minLength={1}//same caracter
-        labelKey={"name"}
-        placeholder="Search product here..."
-      />
-                <span className="input-group-text p-3" id="basic-addon2">
-                  <BsSearch className="fs-6" />
-                </span>
-              </div>
-            </div>
-            <div className="col-5">
+           
+           
+            {/* cart and */}
+            <div className="col-sm-12 col-lg-5 div2 order-2 order-md-3 ">
               <div className="header-upper-links d-flex align-items-center justify-content-between">
-                <div>
-                  <Link
-                    to="/compare-product"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
-                    <img src={compare} alt="compare" />
-                    <p className="mb-0">
-                      Compare <br /> Products
-                    </p>
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    to="/wishlist"
-                    className="d-flex align-items-center gap-10 text-white"
-                  >
+                {
+                  isMobile ? (
+                    <div className="col-sm-1" style={{ width: '15px' }}>
+  <Menu />
+</div>
+                  ) : ''
+                }
+              <div  className="col-sm-4 col-lg-2 div1 float-start">
+              <h2>
+                <Link to={"/"} className="text-white logo d-md-none d-lg-none">Ahadu</Link>
+              </h2>
+            </div>
+                 <div className="d-none d-md-block">
+                     <Link to="/wishlist" class="d-flex align-items-center gap-10 text-white">
                     <img src={wishlist} alt="wishlist" />
-                    <p className="mb-0">
-                      Favourite <br /> wishlist
-                    </p>
-                  </Link>
-                </div>
+                     <p class="mb-0">
+                        Favourite <br /> wishlist
+                      </p>
+                     </Link>
+                 </div>
                 <div>
                   <Link
                     to={authState.user===null? "/login":"/user-info"}
@@ -174,10 +156,36 @@ useEffect(()=>{
                 </div>
               </div>
             </div>
+
+            <div className="col-sm-12 col-lg-5 div13 order-2 col-md-4">
+              <div className="input-group search">
+              <Typeahead
+        id="pagination-example"
+        onPaginate={() => console.log('Results paginated')}
+        onChange={(selected)=>{
+          navigate(`/product/${selected[0]?.prod}`)
+          dispatch(getAProduct(selected[0]?.prod))
+        }}
+        options={productOtp}
+        paginate={paginate}
+        minLength={1}//same caracter
+        labelKey={"name"}
+        placeholder="Search product here..."
+      />
+                <span className="input-group-text p-3" id="basic-addon2">
+                  <BsSearch className="fs-6" />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </header>
-         <Menu/>
+      {
+                  isMobile ? (
+              ''
+                  ) :   <Menu />
+
+                }
          
       <header className="header-bottom py-3">
         <div className="container-xxl">

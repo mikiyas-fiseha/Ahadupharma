@@ -11,6 +11,8 @@ import { getAllProducts } from "../features/products/productSlice";
 import PopularProduct from "../components/PopularProduct";
 import FeaturedProduct from "../components/FeaturedProduct";
 import Meta from "../components/Meta";
+import { Carousel } from 'react-bootstrap';
+import {  Row, Col } from 'react-bootstrap';
 //import { services } from "../utils/Data";
 
 const Home = () => {
@@ -33,12 +35,100 @@ useEffect(()=>{
   const getProducts=()=>{
     dispatch(getAllProducts())
 }
+
+const data = [
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 2' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 3' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 4' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 5' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 1' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 6' },
+];
   return (
     <>
     <Meta title={"Home"} />
 
       <Container class1="home-wrapper-1 py-5">
-        <div className="row">
+
+
+      <Carousel fade indicators={false} controls={window.innerWidth > 576} pauseOnHover={false} interval={5000}>
+      <Carousel.Item>
+      <div className="banner-image">
+      <img
+          className="d-block w-100 h-lg-auto"
+          src="images/catbanner-01.jpg"
+          alt="Banner 1"
+        />
+      </div>
+       
+        {window.innerWidth > 576 && (
+          <Carousel.Caption className="text-center">
+            <h2>Banner 1 Title</h2>
+            <p>Banner 1 Description</p>
+          </Carousel.Caption>
+        )}
+      </Carousel.Item>
+      <Carousel.Item>
+      <div className="banner-image">
+      <img
+          className="d-block w-100 h-lg-auto"
+          src="https://images.unsplash.com/photo-1590845947670-c009801ffa74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1159&q=80"
+          alt="Banner 2"
+        />
+     </div>
+       
+        {window.innerWidth > 576 && (
+          <Carousel.Caption className="text-center">
+            <h2>Banner 2 Title</h2>
+            <p>Banner 2 Description</p>
+          </Carousel.Caption>
+        )}
+      </Carousel.Item>
+      <Carousel.Item>
+      <div className="banner-image">
+
+        <img
+          className="d-block w-100 h-lg-auto"
+          src="images/main-banner-1.jpg"
+          alt="Banner 3"
+        />
+        </div>
+        {window.innerWidth > 576 && (
+          <Carousel.Caption className="text-center">
+            <h2>Banner 3 Title</h2>
+            <p>Banner 3 Description</p>
+          </Carousel.Caption>
+        )}
+      </Carousel.Item>
+    </Carousel>
+              <div className="">
+                <h5 className="card-title text-center mb-0">Always here for you</h5>
+              </div>
+              <div className="card-body">
+                <p className="card-text text-center">with all the health essentials you need for you and your family</p>
+              </div>
+    <div className="container">
+    
+      <div className="row row-cols-2 row-cols-lg-6">
+        {data.map((item) => (
+          <div key={item.id} className="col mb-4">
+            <div className="card" onClick={() => console.log("clicked")}>
+              <img src={item.image} className="card-img-top" alt={item.name} />
+              <div className="card-body">
+                <h5 className="card-text text-center">{item.cardName}</h5>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+
+
+
+
+
+        <div className="row d-none d-md-block">
           <div className="col-6">
             <div className="main-banner position-relative ">
               <img
