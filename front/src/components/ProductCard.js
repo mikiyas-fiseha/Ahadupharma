@@ -42,7 +42,7 @@ const ProductCard = (props) => {
             //     ? "/product/:id"
             //     : ":id"
             // }`}
-            className="product-card position-relative"
+            className="product-card product-card2 col-lg-12 position-relative"
           >
             <div className="wishlist-icon position-absolute">
               <button className="border-0 bg-transparent" onClick={(e)=>{addToWish(item?._id)}}>
@@ -82,9 +82,9 @@ const ProductCard = (props) => {
                  // onClick={()=>navigate("/product/"+item?._id)} 
                   src={view} alt="view" />
                 </Link>
-                <button className="border-0 bg-transparent">
+                {/* <button className="border-0 bg-transparent">
                   <img src={addcart} alt="addcart" />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

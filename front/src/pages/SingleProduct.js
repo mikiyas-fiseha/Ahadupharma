@@ -136,8 +136,8 @@ const largeImage =productState?.images[0]?.url
       <Meta title={productState?.title} />
       <BreadCrumb title={productState?.title} />
       <Container class1="main-product-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-6">
+        <div className="row row-cols-lg-2">
+          <div className="col-lg-6 col-sm-12 ">
             <div className="main-product-image">
               <div>
               <ImageMagnify
@@ -180,7 +180,7 @@ const largeImage =productState?.images[0]?.url
              
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-lg-6 col-sm-12">
             <div className="main-product-details">
               <div className="border-bottom">
                 <h3 className="title">
@@ -357,8 +357,8 @@ const largeImage =productState?.images[0]?.url
             <div className="review-inner-wrapper">
               <div className="review-head d-flex justify-content-between align-items-end">
                 <div>
-                  <h4 className="mb-2">Customer Reviews</h4>
-                  <div className="d-flex align-items-center gap-10">
+                  <h4 className="mb-2 col-12">Customer{' '}Reviews</h4>
+                  <div className="d-flex align-items-center gap-10 col-sm-12">
                   <ReactStars
                     count={5}
                     size={24}
@@ -366,12 +366,13 @@ const largeImage =productState?.images[0]?.url
                     edit={false}
                     activeColor="#ffd700"
                   />
-                  <p className="mb-0 t-review">Based on{ productState&&productState?.totalrating?.length} Review</p>
                   </div>
                 </div>
+                <p className="mb-0 t-review">Based on{ productState&&productState?.totalrating?.length} Review</p>
+
                 {orderedProduct && (
                   <div>
-                    <a className="text-dark text-decoration-underline" href="">
+                    <a className="text-dark text-decoration-underline d-none d-md-block" href="">
                       Write a Review
                     </a>
                   </div>

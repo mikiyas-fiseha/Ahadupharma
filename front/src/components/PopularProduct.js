@@ -27,12 +27,12 @@ const PopularProduct = (props) => {
       
       <div
         className={` ${
-          location.pathname == "/product" ? `gr-${grid}` : "col-3"
+          location.pathname == "/product" ? `gr-${grid}` : " col-lg-3 col-sm-3"
         } `}
       >
         <div
           // to={`/product/${id}`}
-          className="product-card position-relative"
+          className="product-card position-relative m-2"
         >
           <div className="wishlist-icon position-absolute">
           <button className="border-0 bg-transparent" onClick={(e)=>{addToWish(id)}}>

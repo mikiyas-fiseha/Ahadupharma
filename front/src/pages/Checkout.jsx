@@ -190,9 +190,9 @@ useEffect(()=>{
     <>
       <Container class1="checkout-wrapper py-5 home-wrapper-2">
         <div className="row">
-          <div className="col-7">
+          <div className="col-lg-7 order-2 order-md-1 col-sm-12">
             <div className="checkout-left-data">
-              <h3 className="website-name">Mikiyas</h3>
+              {/* <h3 className="website-name">Mikiyas</h3>
               <nav
                 style={{ "--bs-breadcrumb-divider": ">" }}
                 aria-label="breadcrumb"
@@ -227,7 +227,7 @@ useEffect(()=>{
               <p className="user-details total">
                 Mikiyas Fiseha (mikiyasfiseha097@gmail.com)
               </p>
-              <h4 className="mb-3">Shipping Address</h4>
+              <h4 className="mb-3">Shipping Address</h4> */}
               <form
                 action=""
                 onSubmit={formik.handleSubmit}
@@ -430,14 +430,14 @@ useEffect(()=>{
                       Continue to Shipping
                     </Link>
 
-                    <button className="button border-0" type="submit" >Place Order</button>
+                    <button className="button button2 border-0" type="submit" >Place Order</button>
 
                   </div>
                 </div>
               </form>
             </div>
           </div>
-          <div className="col-5">
+          <div className="col-lg-5 order-1 order-md-2  col-sm-12">
             <div className="border-bottom py-4">
               {
                 cartState&&cartState?.map((item,index)=>{

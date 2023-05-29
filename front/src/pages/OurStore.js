@@ -82,7 +82,7 @@ useEffect(()=>{
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-3">
-                            <div className="filter-card mb-3">
+                            <div className="filter-card mb-3 d-none d-md-block">
                                 <h3 className="filter-title">Shop By Categories</h3>
                                 <div>
                                     <ul className="ps-0">
@@ -94,7 +94,7 @@ useEffect(()=>{
                                     </ul>
                                 </div>
                             </div>
-                            <div className="filter-card mb-3">
+                            <div className="filter-card mb-3 d-none d-md-block">
                                 <h3 className="filter-title">Filter By</h3>
                                 <div>
                                     <h5 className="sub-title">Availablity</h5>
@@ -153,7 +153,7 @@ useEffect(()=>{
                                    
                                 </div>
                             </div>
-                            <div className="mt-4 mb-3">
+                            <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
@@ -172,7 +172,7 @@ useEffect(()=>{
                             </div>
 
 
-                            <div className="mt-4 mb-3">
+                            <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
@@ -240,7 +240,7 @@ useEffect(()=>{
                                 </div>
                             </div> */}
                         </div>
-                        <div className="col-9">
+                        <div className="col-lg-9 col-sm-12">
                             <div className="filter-sort-grid mb-4">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center gap-10">
@@ -266,15 +266,15 @@ useEffect(()=>{
                                             <option value="-createdAt">Date, new to old</option>
                                         </select>
                                     </div>
-                                    <div className="d-flex align-items-center gap-10">
+                                    <div className="d-flex align-items-center  gap-10 ">
                                         <p className="totalproducts mb-0">{productState.length} Products</p>
-                                        <div className="d-flex gap-10 align-items-center grid">
+                                        <div className="d-flex gap-10 align-items-center grid ">
                                             <img
                                                 onClick={() => {
                                                     setGrid(3);
                                                 }}
                                                 src={gr4}
-                                                className="d-block img-fluid"
+                                                className="d-none d-md-block img-fluid"
                                                 alt="grid"
                                             />
                                             <img
@@ -299,15 +299,15 @@ useEffect(()=>{
                                                     setGrid(12);
                                                 }}
                                                 src={gr1}
-                                                className="d-block img-fluid"
+                                                className="d-none d-md-block img-fluid"
                                                 alt="grid"
                                             />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="products-list pb-5">
-                                <div className="d-flex gap-10 flex-wrap">
+                            <div className="products-list pb-5 ">
+                                <div className="d-flex gap-10  flex-wrap ">
                                     <ProductCard 
                                    data={currentProducts&&currentProducts}
                                     grid={grid} />

@@ -101,6 +101,9 @@ const data = [
         )}
       </Carousel.Item>
     </Carousel>
+
+    
+{/* cards cat */}
               <div className="">
                 <h5 className="card-title text-center mb-0">Always here for you</h5>
               </div>
@@ -123,8 +126,7 @@ const data = [
       </div>
     </div>
 
-
-
+{/*card end */}
 
 
 
@@ -225,7 +227,9 @@ const data = [
           </div>
         </div>
       </Container>
-      <Container class1="home-wrapper-2 py-5">
+     
+     
+      {/* <Container class1="home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
             <div className="categories d-flex justify-content-between flex-wrap align-items-center">
@@ -288,13 +292,16 @@ const data = [
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
+  
+
+
       <Container class1="featured-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Featured Collection</h3>
           </div>
-          <div className="row">
+          <div className="row row-cols-2">
         
         {
                    productState && productState?.map((item,index)=>{
@@ -317,7 +324,7 @@ const data = [
         </div>
       </Container>
 
-      <Container class1="famous-wrapper py-5 home-wrapper-2">
+      {/* <Container class1="famous-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-3">
             <div className="famous-card position-relative">
@@ -380,7 +387,7 @@ const data = [
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
 
       <Container class1="special-wrapper py-5 home-wrapper-2">
         <div className="row">
@@ -420,7 +427,7 @@ const data = [
             <h3 className="section-heading">Our Popular Products</h3>
           </div>
         </div>
-        <div className="row">
+        <div className="row row-cols-2">
         
         {
                    productState && productState?.map((item,index)=>{
@@ -484,13 +491,13 @@ const data = [
             <h3 className="section-heading">Our Latest Blogs</h3>
           </div>
         </div>
-        <div className="row">
+        <div className="row row-cols-2">
           
           {
                 blogState&&blogState?.map((item,index)=>{
                 if(index<4){
                   return(
-                    <div key={index} className="col-3 mb-3">
+                    <div key={index} className=" col-lg-3 col-sm-6 mb-3">
                     <BlogCard
                     id={item._id}
                     title={item.title}

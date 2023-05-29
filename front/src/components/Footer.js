@@ -8,13 +8,13 @@ const Footer = () => {
             <footer className="py-4">
                 <div className="container-xxl">
                     <div className="row align-items-center">
-                        <div className="col-5">
+                        <div className="col-lg-5 col-sm-12 ">
                             <div className="footer-top-data d-flex gap-30 align-items-center">
                                 <img src={newsletter} alt="newsletter" />
-                                <h2 className="mb-0 text-white">Sign Up for Newsletter</h2>
+                                <h2 className="mb-0 text-white signupnews">Sign Up for Newsletter</h2>
                             </div>
                         </div>
-                        <div className="col-7">
+                        <div className="col-lg-7 col-sm-12">
                             <div className="input-group">
                                 <input
                                     type="text"
@@ -33,25 +33,25 @@ const Footer = () => {
             </footer>
             <footer className="py-4">
                 <div className="container-xxl">
-                    <div className="row">
-                        <div className="col-4">
+                    <div className="row row-cols-2">
+                        <div className="col-lg-4col-sm-6">
                             <h4 className="text-white mb-4">Contact Us</h4>
                             <div>
                                 <address className="text-white fs-6">
-                                    Hno : 277 Near Vill chopal, <br /> Sonipat, Haryana <br />
-                                    PinCode: 131103
+                                    Hno : 277 Addis Ababa, <br /> Boel, Eedna MAll <br />
+                                    PinCode: 1000
                                 </address>
                                 <a
                                     href="tel:+91 8264954234"
                                     className="mt-3 d-block mb-1 text-white"
                                 >
-                                    +91 8264954234
+                                    0979990433
                                 </a>
                                 <a
                                     href="mailto:navdeepdahiya753@gmail.com"
                                     className="mt-2 d-block mb-0 text-white"
                                 >
-                                    navdeepdahiya753@gmail.com
+                                    mikiyas7@gmail.com
                                 </a>
                                 <div className="social_icons d-flex align-items-center gap-30 mt-4">
                                     <a className="text-white" href="#/">
@@ -63,9 +63,7 @@ const Footer = () => {
                                     <a className="text-white" href="#/">
                                         <BsGithub className="fs-4" />
                                     </a>
-                                    <a className="text-white" href="#/">
-                                        <BsYoutube className="fs-4" />
-                                    </a>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -87,7 +85,7 @@ const Footer = () => {
                                 <Link className="text-white py-2 mb-1">Blogs</Link>
                             </div>
                         </div>
-                        <div className="col-3">
+                        <div className="col-3 d-none d-md-block">
                             <h4 className="text-white mb-4">Account</h4>
                             <div className="footer-link d-flex flex-column">
                                 <Link className="text-white py-2 mb-1">About Us</Link>
@@ -95,7 +93,7 @@ const Footer = () => {
                                 <Link className="text-white py-2 mb-1">Contact</Link>
                             </div>
                         </div>
-                        <div className="col-2">
+                        <div className="col-2 d-none d-md-block">
                             <h4 className="text-white mb-4">Quick Links</h4>
                             <div className="footer-link d-flex flex-column">
                                 <Link className="text-white py-2 mb-1">Laptops</Link>

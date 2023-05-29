@@ -11,6 +11,9 @@ import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
 import { addTOWishlist } from "../features/products/productSlice";
 import { useDispatch } from "react-redux";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const FeaturedProduct = (props) => {
   const { grid ,brand,title,price,image,tags,id} = props;
   //console.log(grid,brand,title,price,image,tags);
@@ -22,13 +25,28 @@ const FeaturedProduct = (props) => {
 
     dispatch(addTOWishlist(id))
   }
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2, // Display 2 products at a time on mobile
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // Breakpoint for mobile devices
+        settings: {
+          slidesToShow: 1, // Display 1 product at a time on smaller screens
+        },
+      },
+    ],
+  };
   return (
     <>
+        
       
       <div
         className={` ${
-          location.pathname == "/product" ? `gr-${grid}` : "col-3"
+          location.pathname == "/product" ? `gr-${grid}` : "col-lg-3 col-sm-3 "
         } `}
       >
         <div

@@ -1071,3 +1071,80 @@ border-radius: 0px;
 .card {
   border: none; /* Remove the border from the card */
 }
+
+@media (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
+  .product-card {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  
+  .product-card .product-image {
+    height: 180px;
+  }
+  
+  .product-card2 .product-image {
+    height: 110px;
+  }
+
+  .product-card .product-image img {
+    object-fit: contain;
+  }
+  
+  
+  
+  .product-card:hover .action-bar {
+    right: 15px;
+  }
+  
+  .product-card .product-details h6 {
+    color: var(--color-bf4800);
+    font-size: 10px;
+  }
+  
+  .product-card .product-details h5 {
+    font-size: 12px;
+    color: var(--color-1c1c1b);
+  }
+  
+  .product-card .product-details p.price {
+    font-size: 13px;
+    color: var(--color-1c1c1b);
+  }
+  
+  .product-card p.description {
+    font-size: 10px;
+    color: var(--color-777777);
+    margin-right: 20px;
+  }
+  .signupnews{
+    font-size: 22px;
+
+  }
+  .footer-top-data{
+    margin-bottom: 13px;
+
+  }
+  .gap-10 {
+    gap: 5px;
+}
+
+.button2 {
+  background-color: var(--color-232f3e);
+  color: white;
+  font-size: 14px;
+  padding: 13px 33px;
+  border-radius: 25px;
+}
+
+.button2:hover {
+  background-color: var(--color-febd69);
+  color: #131921;
+}
+}

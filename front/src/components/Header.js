@@ -195,7 +195,7 @@ useEffect(()=>{
                 <div>
                   <div className="dropdown">
                     <button
-                      className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-15 d-flex align-items-center"
+                      className="btn btn-secondary dropdown-toggle bg-transparent border-0 gap-20 d-flex align-items-center"
                       type="button"
                       id="dropdownMenuButton1"
                       data-bs-toggle="dropdown"
@@ -230,12 +230,12 @@ useEffect(()=>{
                 </div>
                 <div className="menu-links">
                   <div className="d-flex align-items-center gap-15">
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/" className='d-none d-md-block'>Home</NavLink>
                     <NavLink to="/product" >Our Store</NavLink>
                     <NavLink to="/blogs" >Blogs</NavLink>
                     {/* <NavLink to="/my-orders">My ORDERD</NavLink> */}
 
-                    <NavLink to="/contact">Contact</NavLink>
+                    <NavLink to="/contact" className='d-none d-md-block'>Contact</NavLink>
                     {/* <button onClick={handelLogOut} className="border border-0 bg-transparent text-white text-uppercase" type="button">LogOut</button> */}
                   </div>
                 </div>

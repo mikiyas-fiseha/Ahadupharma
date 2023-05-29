@@ -44,22 +44,22 @@ function UserInfo() {
 <Container class1="featured-wrapper py-5 home-wrapper-2">
 <h3 className="mb-4 title">User INfo</h3>
 
-      <div className="row d-flex justify-content-between">
+      <div className="row row-cols-lg-3 d-flex justify-content-between">
 
           
-      <div className="profilecard col-3 d-flex  justify-content-center flex-column align-items-center ">
+      <div className="profilecard col-lg-3 col-sm-12  d-flex  justify-content-center flex-column align-items-center ">
          <AiFillProfile className='fs-1 '/>
 
            <Link to={'/my-profile'} className="fs-3 text-dark ">Profile</Link>
           </div>
 
-          <div className=" profilecard col-3 d-flex  justify-content-center flex-column align-items-center">
+          <div className=" profilecard col-lg-3 col-sm-12  d-flex  justify-content-center flex-column align-items-center">
          <AiFillProfile className='fs-1 '/>
 
          <Link to={'/my-orders'} className="fs-3 text-dark ">Orders</Link>
 
           </div>
-          <div className=" profilecard col-3 d-flex  justify-content-center flex-column align-items-center">
+          <div className=" profilecard col-lg-3 col-sm-12  d-flex  justify-content-center flex-column align-items-center">
          <AiFillProfile className='fs-1 '/>
 
          <button onClick={handelLogOut}  className="border border-0 bg-transparent text-dark text-uppercase" type="button">LogOut</button>

@@ -8,7 +8,7 @@ const BlogCard = (props) => {
     
     return (
        
-        <div className="blog-card">
+        <div className="blog-card ">
             <div className="blog-image">
                 <img src={image} className="img-fluid w-100 " alt="blog" />
             </div>
