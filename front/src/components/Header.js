@@ -12,8 +12,11 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { getAllProducts, getAProduct } from "../features/products/productSlice";
 import Menu from '../navbar/Menu'
 import { getUserCart } from "../features/user/userSlice";
-
+import { useGlobalContext } from '../navbar/context';
+import { AppProvider } from '../navbar/context';
 const Header = () => {
+  
+  
   const dispatch=useDispatch()
   const navigate=useNavigate()
   const [total,setTotal]=useState(null)
@@ -74,7 +77,8 @@ useEffect(()=>{
     const isMobile = window.innerWidth <= 768;
   return (
     <>
-      <header className="header-top-strip py-3 d-none d-md-block">
+     
+     <header className="header-top-strip py-3 d-none d-md-block" >
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -244,6 +248,7 @@ useEffect(()=>{
           </div>
         </div>
       </header>
+     
     </>
   );
 };

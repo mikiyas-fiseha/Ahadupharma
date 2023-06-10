@@ -37,10 +37,10 @@ useEffect(()=>{
 }
 
 const data = [
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 2' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 3' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 4' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 5' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Medicine' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Personal Care' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Baby and Child Care' },
+  { image: 'images/main-banner-1.jpg', cardName: 'Health and Wellness' },
   { image: 'images/main-banner-1.jpg', cardName: 'Card 1' },
   { image: 'images/main-banner-1.jpg', cardName: 'Card 6' },
 ];

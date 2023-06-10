@@ -48,6 +48,8 @@ const Sidebar = () => {
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+  console.log(closeSubmenu.value,"isSidebarOpen")
+
   const displaySubmenu = (e) => {
     const page = e.target.textContent;
     const tempBtn = e.target.getBoundingClientRect();
