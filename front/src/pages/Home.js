@@ -12,6 +12,7 @@ import PopularProduct from "../components/PopularProduct";
 import FeaturedProduct from "../components/FeaturedProduct";
 import Meta from "../components/Meta";
 import { Carousel } from 'react-bootstrap';
+import baby from "../images/baby.jpg"
 import {  Row, Col } from 'react-bootstrap';
 //import { services } from "../utils/Data";
 
@@ -39,7 +40,7 @@ useEffect(()=>{
 const data = [
   { image: 'images/main-banner-1.jpg', cardName: 'Medicine' },
   { image: 'images/main-banner-1.jpg', cardName: 'Personal Care' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Baby and Child Care' },
+  { image: 'images/baby.jpg', cardName: 'Baby and Child Care' },
   { image: 'images/main-banner-1.jpg', cardName: 'Health and Wellness' },
   { image: 'images/main-banner-1.jpg', cardName: 'Card 1' },
   { image: 'images/main-banner-1.jpg', cardName: 'Card 6' },
@@ -116,7 +117,8 @@ const data = [
         {data.map((item) => (
           <div key={item.id} className="col mb-4">
             <div className="card" onClick={() => console.log("clicked")}>
-              <img src={item.image} className="card-img-top" alt={item.name} />
+            <img src={item.image} className="card-img-top img-fluid rounded" alt={item.name} style={{ objectFit: 'cover', height: '180px' }} />
+
               <div className="card-body">
                 <h5 className="card-text text-center">{item.cardName}</h5>
               </div>

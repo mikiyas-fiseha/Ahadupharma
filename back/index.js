@@ -47,5 +47,5 @@ app.use("/api/subcategory",subcategoryRoute)
 app.use(notFound)
 app.use(errorHandler)
 app.listen(5000,()=>{
-    console.log(`app is listening at  port ${PORT}  `)
+    console.log(`app is listening  at  port ${PORT}  `)
 })
