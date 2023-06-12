@@ -395,7 +395,12 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = action.error;
         if(state.isError===true){
+          if (action.payload.response.data.message==="User not found with this email") {
+            toast.error(action.payload.response.data.message)
+          } else {
           toast.error("something went wrong please try again")
+            
+          }
         }
        }).addCase(resetPassword.pending, (state) => {
         state.isLoading = true;

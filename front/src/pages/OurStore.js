@@ -37,7 +37,7 @@ const OurStore = () => {
 
 
 
-     console.log(sort)
+    //  console.log(sort)
 useEffect(()=>{
     let newbrand=[]
     let category=[]
@@ -53,7 +53,7 @@ useEffect(()=>{
     setCategories(category)
     setTages(newtags)
 },[productState])
-console.log([...new Set (brands)],[...new Set (categories)],[...new Set(tags)]);
+// console.log([...new Set (brands)],[...new Set (categories)],[...new Set(tags)]);
 useEffect(()=>{
     getProducts()
 },[sort,tag,brand,category,minprice,maxprice])

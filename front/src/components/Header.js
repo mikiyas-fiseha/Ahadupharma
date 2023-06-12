@@ -60,7 +60,7 @@ useEffect(()=>{
        }
     
     },[CartState])
-  console.log(CartState);
+  // console.log(CartState);
     useEffect(()=>{
       let data=[]
       for (let index = 0; index < productState?.length; index++) {

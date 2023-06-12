@@ -18,11 +18,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 
 
-const SubCateProduct = () => {
-    const location=useLocation()
-    const getsubcat=location.pathname.split("/")[2]
+const MainCategory = () => {
     const [grid, setGrid] = useState(4);
+    const location=useLocation()
+
     const dispatch=useDispatch()
+    const getmaincat=decodeURIComponent(location.pathname.split("/")[2])
+    // console.log(getmaincat,"getsubcat");
     const navigate=useNavigate()
     const productState = useSelector((state) => state?.product?.product);
     const [brands,setBrand]=useState([])
@@ -30,16 +32,16 @@ const SubCateProduct = () => {
     const [tags,setTages]=useState([])
 
     //filter state
-    const [category,setCategory]=useState(null)
+    const [category,setCategory]=useState(getmaincat)
     const [tag,setTag]=useState(null)
     const [brand,setBrands]=useState(null)
     const [minprice,setMinPrice]=useState(null)
     const [maxprice,setMaxPrice]=useState(null)
     const [sort,setSort]=useState(null)
-    const [subcategory,setsubcategory]=useState(getsubcat)
 
 
 
+    //  console.log(sort)
 useEffect(()=>{
     let newbrand=[]
     let category=[]
@@ -55,12 +57,12 @@ useEffect(()=>{
     setCategories(category)
     setTages(newtags)
 },[productState])
-console.log([...new Set (brands)],[...new Set (categories)],[...new Set(tags)]);
+// console.log([...new Set (brands)],[...new Set (categories)],[...new Set(tags)]);
 useEffect(()=>{
     getProducts()
 },[sort,tag,brand,category,minprice,maxprice])
     const getProducts=()=>{
-        dispatch(getAllProducts({sort,tag,brand,category,subcategory,minprice,maxprice}))
+        dispatch(getAllProducts({sort,tag,brand,category,minprice,maxprice}))
     }
 
 
@@ -84,7 +86,7 @@ useEffect(()=>{
                 <div className="container-xxl">
                     <div className="row">
                         <div className="col-3">
-                            <div className="filter-card mb-3">
+                            <div className="filter-card mb-3 d-none d-md-block">
                                 <h3 className="filter-title">Shop By Categories</h3>
                                 <div>
                                     <ul className="ps-0">
@@ -96,7 +98,7 @@ useEffect(()=>{
                                     </ul>
                                 </div>
                             </div>
-                            <div className="filter-card mb-3">
+                            <div className="filter-card mb-3 d-none d-md-block">
                                 <h3 className="filter-title">Filter By</h3>
                                 <div>
                                     <h5 className="sub-title">Availablity</h5>
@@ -155,7 +157,7 @@ useEffect(()=>{
                                    
                                 </div>
                             </div>
-                            <div className="mt-4 mb-3">
+                            <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
@@ -174,7 +176,7 @@ useEffect(()=>{
                             </div>
 
 
-                            <div className="mt-4 mb-3">
+                            <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
@@ -242,7 +244,7 @@ useEffect(()=>{
                                 </div>
                             </div> */}
                         </div>
-                        <div className="col-9">
+                        <div className="col-lg-9 col-sm-12">
                             <div className="filter-sort-grid mb-4">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div className="d-flex align-items-center gap-10">
@@ -268,15 +270,15 @@ useEffect(()=>{
                                             <option value="-createdAt">Date, new to old</option>
                                         </select>
                                     </div>
-                                    <div className="d-flex align-items-center gap-10">
+                                    <div className="d-flex align-items-center  gap-10 ">
                                         <p className="totalproducts mb-0">{productState.length} Products</p>
-                                        <div className="d-flex gap-10 align-items-center grid">
+                                        <div className="d-flex gap-10 align-items-center grid ">
                                             <img
                                                 onClick={() => {
                                                     setGrid(3);
                                                 }}
                                                 src={gr4}
-                                                className="d-block img-fluid"
+                                                className="d-none d-md-block img-fluid"
                                                 alt="grid"
                                             />
                                             <img
@@ -301,15 +303,15 @@ useEffect(()=>{
                                                     setGrid(12);
                                                 }}
                                                 src={gr1}
-                                                className="d-block img-fluid"
+                                                className="d-none d-md-block img-fluid"
                                                 alt="grid"
                                             />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="products-list pb-5">
-                                <div className="d-flex gap-10 flex-wrap">
+                            <div className="products-list pb-5 ">
+                                <div className="d-flex gap-10  flex-wrap ">
                                     <ProductCard 
                                    data={currentProducts&&currentProducts}
                                     grid={grid} />
@@ -346,5 +348,5 @@ useEffect(()=>{
     );
 };
 
-export default SubCateProduct;
+export default MainCategory;
 

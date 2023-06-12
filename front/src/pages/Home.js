@@ -38,12 +38,12 @@ useEffect(()=>{
 }
 
 const data = [
-  { image: 'images/main-banner-1.jpg', cardName: 'Medicine' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Personal Care' },
-  { image: 'images/baby.jpg', cardName: 'Baby and Child Care' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Health and Wellness' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 1' },
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 6' },
+  { image: 'images/medicin.jpg', cardName: 'Medicine' ,url:"main-products/Medicine"},
+  { image: 'images/personalcare.jpg', cardName: 'Personal Care' ,url:"main-products/Personal care"},
+  { image: 'images/baby.jpg', cardName: 'Baby and Child Care' ,url:"main-products/Baby and Child Care"},
+  { image: 'images/wellness.jpg', cardName: 'Health and Wellness' ,url:"main-products/Health and Wellness"},
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 1' ,url:"main-products/"},
+  { image: 'images/main-banner-1.jpg', cardName: 'Card 6' ,url:"main-products/"},
 ];
   return (
     <>
@@ -116,13 +116,15 @@ const data = [
       <div className="row row-cols-2 row-cols-lg-6">
         {data.map((item) => (
           <div key={item.id} className="col mb-4">
-            <div className="card" onClick={() => console.log("clicked")}>
+           <Link to={item?.url}>
+           <div className="card">
             <img src={item.image} className="card-img-top img-fluid rounded" alt={item.name} style={{ objectFit: 'cover', height: '180px' }} />
 
               <div className="card-body">
                 <h5 className="card-text text-center">{item.cardName}</h5>
               </div>
             </div>
+           </Link>
           </div>
         ))}
       </div>

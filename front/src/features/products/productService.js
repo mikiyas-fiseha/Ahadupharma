@@ -13,7 +13,7 @@ import { config } from "../../utils/axiosconfig";
 // }
 
 const getProducts=async(data)=>{
-    console.log(data,'filter');
+    // console.log(data,'filter');
     const respons=await axios.get(`${base_url}product?${data?.brand?`brand=${data?.brand}&&`:""}${data?.tag?`tags=${data?.tag}&&`:""}${data?.category?`category=${data?.category}&&`:""}${data?.subcategory?`subcategory=${data?.subcategory}&&`:""}${data?.minprice?`price[gte]=${data?.minprice}&&`:""}${data?.maxprice?`price[lte]=${data?.maxprice}&&`:""}${data?.sort?`sort=${data?.sort}&&`:""}`)
     if(respons.data){
         return respons.data
@@ -29,7 +29,7 @@ const getSingleProduct=async(id)=>{
 }
 
 const addTOWishlist=async(prodId)=>{
-    console.log(prodId,"prodIdser")
+    // console.log(prodId,"prodIdser")
 
     const respons=await axios.put(`${base_url}product/wishlist`,{prodId},config)
     
@@ -41,7 +41,7 @@ const addTOWishlist=async(prodId)=>{
 }
 
 const rateProduct=async(data)=>{
-    console.log(data,"prodIdser")
+    // console.log(data,"prodIdser")
 
     const respons=await axios.put(`${base_url}product/rating`,data,config)
     
