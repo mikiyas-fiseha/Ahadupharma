@@ -155,9 +155,9 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
 
         formik.resetForm();
         setColor(null);
-        setTimeout(() => {
-          dispatch(resetState());
-        }, 300);
+        // setTimeout(() => {
+        //   dispatch(resetState());
+        // }, 300);
       }
     
     },

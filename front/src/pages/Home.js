@@ -316,7 +316,7 @@ const data = [
         brand={item.brand} 
         title={item.title} 
         price={item.price}
-        image={item.images[0].url}
+        image={item.images[0]?.url}
         tags={item.tags}
         id={item._id}
       />
