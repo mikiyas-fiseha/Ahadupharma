@@ -36,7 +36,7 @@ const Checkout = () => {
 
 
   //console.log(cartProductState,'cartProductState')
- console.log(cartState,"info")
+ //console.log(cartState,"info")
 
 
   const formik = useFormik({
@@ -451,7 +451,7 @@ useEffect(()=>{
                     >
                       {item.quantity}
                     </span>
-                    <img className="img-fluid" src={item?.productId?.images[0].url} alt="product" />
+                    <img className="img-fluid" src={item?.productId?.images[0]?.url} alt="product" />
                   </div>
                   <div>
                     <h5 className="total-price">{item?.productId?.title}</h5>
