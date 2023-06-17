@@ -14,8 +14,9 @@ import { useDispatch } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import StarRatings from "react-star-ratings";
 const FeaturedProduct = (props) => {
-  const { grid ,brand,title,price,image,tags,id} = props;
+  const { grid ,brand,title,price,image,tags,id,totalrating} = props;
   //console.log(grid,brand,title,price,image,tags);
   let location = useLocation();
   const navigate=useNavigate()
@@ -67,13 +68,14 @@ const FeaturedProduct = (props) => {
             <h5 className="product-title">
               {title}
             </h5>
-            <ReactStars
-              count={5}
-              size={24}
-              value={4}
-              edit={false}
-              activeColor="#ffd700"
-            />
+            <StarRatings
+      rating={parseFloat(totalrating)}
+      starRatedColor="#ffd700"
+      starEmptyColor="#ccc"
+      numberOfStars={5}
+      starDimension="24px"
+      starSpacing="2px"
+    />
             <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
               At vero eos et accusamus et iusto odio dignissimos ducimus qui
               blanditiis praesentium voluptatum deleniti atque corrupti quos

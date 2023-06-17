@@ -36,11 +36,11 @@ const authState = useSelector((state) => state?.auth);
       //alert(JSON.stringify(values, null, 2));
     },
   });
-  // useEffect(()=>{
-  //   if(authState?.createduser!==null &&authState?.isError===false){
-  //     navigate('/login')
-  //   }
-  // },[authState])
+  useEffect(()=>{
+    if(authState?.createduser!==null &&authState?.isSuccess===true){
+      navigate('/login')
+    }
+  },[authState])
 
   return (
     <>

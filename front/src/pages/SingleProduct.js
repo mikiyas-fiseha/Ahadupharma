@@ -16,6 +16,7 @@ import { addProdTOCart, getUserCart } from "../features/user/userSlice";
 import PopularProduct from "../components/PopularProduct";
 import { toast } from "react-toastify";
 import ImageMagnify from 'react-image-magnify';
+// import StarRatings from 'react-star-ratings';
 
 const SingleProduct = () => {
 
@@ -54,14 +55,15 @@ console.log(productState,'productState');
   // console.log(CartState,'io')
 console.log(typeof(productState?.totalrating),"totalratingg");
 
-  console.log( productState?.ratings,'sdsd')
+  console.log( productState?.totalrating,'sdsd')
   useEffect(()=>{
     dispatch(getAProduct(getProductId))
     dispatch(getUserCart())
 dispatch(getAllProducts())
     
 },[])
-
+let totalreating=parseFloat(productState?.totalrating)
+console.log(totalreating,'totalreating');
 useEffect(()=>{
   if (CartState) {
     for (let index = 0; index < CartState.length; index++) {
@@ -191,13 +193,14 @@ const largeImage =productState?.images[0]?.url
               <div className="border-bottom py-3">
                 <p className="price">$    {productState&&productState?.price}</p>
                 <div className="d-flex align-items-center gap-10">
-                  <ReactStars
-                    count={5}
-                    size={24}
-                    value=   {+productState&&productState?.totalrating}
-                    edit={false}
-                    activeColor="#ffd700"
-                  />
+                {/* <StarRatings
+      rating={parseFloat(productState?.totalrating)}
+      starRatedColor="#ffd700"
+      starEmptyColor="#ccc"
+      numberOfStars={5}
+      starDimension="24px"
+      starSpacing="2px"
+    /> */}
                   <p className="mb-0 t-review">{productState?.ratings?.length} Review</p>
                 </div>
                
@@ -352,16 +355,16 @@ const largeImage =productState?.images[0]?.url
                 <div>
                   <h4 className="mb-2 col-12">Customer{' '}Reviews</h4>
                   <div className="d-flex align-items-center gap-10 col-sm-12">
-                    {
-                      console.log(typeof(+productState?.totalrating),"inside")
-                    }
-                  <ReactStars
-                    count={5}
-                    size={24}
-                    value=  {+productState?.totalrating}
-                    edit={false}
-                    activeColor="#ffd700"
-                  />
+                    
+                  {/* <StarRatings
+      rating={parseFloat(productState?.totalrating)}
+      starRatedColor="#ffd700"
+      starEmptyColor="#ccc"
+      numberOfStars={5}
+      starDimension="24px"
+      starSpacing="2px"
+    /> */}
+
                   </div>
                 </div>
                 <p className="mb-0 t-review">Based on { productState?.ratings?.length} Review</p>
@@ -371,7 +374,7 @@ const largeImage =productState?.images[0]?.url
                     <a className="text-dark text-decoration-underline d-none d-md-block" href="">
                       Write a Review
                     </a>
-                  </div>
+                  </div
                 )} */}
               </div>
               <div className="review-form py-4">
@@ -413,13 +416,15 @@ const largeImage =productState?.images[0]?.url
                 <div key={index} className="review">
                 <div className="d-flex gap-10 align-items-center">
                    <h6 className="mb-0">{item?.username}</h6> 
-                   <ReactStars
-                    count={5}
-                    size={24}
-                    value={item?.star}
-                    edit={false}
-                    activeColor="#ffd700"
-                  />
+                   {/* <StarRatings
+  rating={parseFloat(item?.star)}
+  starRatedColor="#ffd700"
+  starEmptyColor="#ccc"
+  numberOfStars={5}
+  starDimension="24px"
+  starSpacing="2px"
+  isSelectable={false}
+/> */}
                 </div>
                 <p className="mt-3">
                  {

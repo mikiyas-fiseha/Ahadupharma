@@ -24,7 +24,7 @@ let pcounter=0
   const blogState = useSelector((state) => state?.blog?.blog);
    //console.log(blogState)
    const productState = useSelector((state) => state?.product?.product);
-   //console.log(productState)
+   console.log(productState,'productState')
 
 useEffect(()=>{
   getBlogs()
@@ -300,6 +300,7 @@ const data = [
         price={item.price}
         image={item.images[0]?.url}
         tags={item.tags}
+        totalrating={item.totalrating}
         id={item._id}
       />
     );
@@ -394,6 +395,7 @@ const data = [
                    totalrating={item.totalrating}
                    sold={item?.sold}
                    image={item?.images[0]?.url}
+                  
 
                   quantity={item?.quantity}
                   
@@ -425,6 +427,8 @@ const data = [
         title={item.title} 
         price={item.price}
         image={item.images[0]?.url}
+        totalrating={item.totalrating}
+
         tags={item.tags}
         id={item._id}
       />

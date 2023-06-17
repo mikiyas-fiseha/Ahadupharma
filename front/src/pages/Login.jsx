@@ -30,11 +30,17 @@ const Login = () => {
     },
   });
 
-  useEffect(()=>{
-    if(authState?.user!==null &&authState?.isError===false){
-      navigate('/')
+  useEffect(() => {
+    if (authState?.user !== null && authState?.isError === false) {
+      // Refresh the page only once after successful login
+      if (!localStorage.getItem('refreshedOnce')) {
+        localStorage.setItem('refreshedOnce', true);
+        window.location.reload();
+      } else {
+        navigate('/');
+      }
     }
-  },[authState])
+  }, [authState]);
 
 
   // const {  user,isSuccess} = authState.auth;
