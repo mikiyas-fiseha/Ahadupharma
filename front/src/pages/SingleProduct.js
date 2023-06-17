@@ -49,12 +49,12 @@ const [alreadyadded,seAtlreadyadded]=useState(false)
   }
   const productState = useSelector((state) => state.product?.singleproduct);
   const productsState = useSelector((state) => state?.product?.product);
-
+console.log(productState,'productState');
   const CartState=useSelector(state=>state.auth?.cartProducts)
   // console.log(CartState,'io')
+console.log(typeof(productState?.totalrating),"totalratingg");
 
-
-  console.log( productState?.ratings)
+  console.log( productState?.ratings,'sdsd')
   useEffect(()=>{
     dispatch(getAProduct(getProductId))
     dispatch(getUserCart())
@@ -128,6 +128,7 @@ const isSectionActive = (section) => {
 };
 const smallImage =productState?.images[0]?.url
 ;
+console.log(smallImage);
 const largeImage =productState?.images[0]?.url
 ;
 
@@ -193,21 +194,16 @@ const largeImage =productState?.images[0]?.url
                   <ReactStars
                     count={5}
                     size={24}
-                    value=   {productState&&productState?.totalrating}
+                    value=   {+productState&&productState?.totalrating}
                     edit={false}
                     activeColor="#ffd700"
                   />
-                  <p className="mb-0 t-review">{ productState&&productState?.totalrating?.length} Review</p>
+                  <p className="mb-0 t-review">{productState?.ratings?.length} Review</p>
                 </div>
-                <a className="review-btn" href="#review">
-                  Write a Review
-                </a>
+               
               </div>
               <div className=" py-3">
-                <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Type :</h3>
-                  <p className="product-data">Watch</p>
-                </div>
+                
                 <div className="d-flex gap-10 align-items-center my-2">
                   <h3 className="product-heading">Brand :</h3>
                   <p className="product-data">   {productState&&productState?.brand}</p>
@@ -229,10 +225,7 @@ const largeImage =productState?.images[0]?.url
                   <h3 className="product-heading">Expiry Date:</h3>
                   <p className="product-data">{productState&&productState?.expiryDate?.split('T')[0]}</p>
                 </div>
-                <div className="d-flex gap-10 align-items-center my-2">
-                  <h3 className="product-heading">Availablity :</h3>
-                  <p className="product-data">In Stock</p>
-                </div>
+                
                 {/* <div className="d-flex gap-10 flex-column mt-2 mb-3">
                   <h3 className="product-heading">Size :</h3>
                   <div className="d-flex flex-wrap gap-15">
@@ -282,7 +275,7 @@ const largeImage =productState?.images[0]?.url
                     </button>
                   </div>
                 </div>
-                <div className="d-flex align-items-center gap-15">
+                {/* <div className="d-flex align-items-center gap-15">
                   <div>
                     <a href="">
                       <TbGitCompare className="fs-5 me-2" /> Add to Compare
@@ -293,15 +286,15 @@ const largeImage =productState?.images[0]?.url
                       <AiOutlineHeart className="fs-5 me-2" /> Add to Wishlist
                     </a>
                   </div>
-                </div>
-                <div className="d-flex gap-10 flex-column  my-3">
+                </div> */}
+                {/* <div className="d-flex gap-10 flex-column  my-3">
                   <h3 className="product-heading">Shipping & Returns :</h3>
                   <p className="product-data">
                     Free shipping and returns available on all orders! <br /> We
                     ship all US domestic orders within
                     <b>5-10 business days!</b>
                   </p>
-                </div>
+                </div> */}
               
               </div>
             </div>
@@ -359,24 +352,27 @@ const largeImage =productState?.images[0]?.url
                 <div>
                   <h4 className="mb-2 col-12">Customer{' '}Reviews</h4>
                   <div className="d-flex align-items-center gap-10 col-sm-12">
+                    {
+                      console.log(typeof(+productState?.totalrating),"inside")
+                    }
                   <ReactStars
                     count={5}
                     size={24}
-                    value=   {productState&&productState?.totalrating}
+                    value=  {+productState?.totalrating}
                     edit={false}
                     activeColor="#ffd700"
                   />
                   </div>
                 </div>
-                <p className="mb-0 t-review">Based on{ productState&&productState?.totalrating?.length} Review</p>
+                <p className="mb-0 t-review">Based on { productState?.ratings?.length} Review</p>
 
-                {orderedProduct && (
+                {/* {orderedProduct && (
                   <div>
                     <a className="text-dark text-decoration-underline d-none d-md-block" href="">
                       Write a Review
                     </a>
                   </div>
-                )}
+                )} */}
               </div>
               <div className="review-form py-4">
                 <h4>Write a Review</h4>
@@ -388,6 +384,7 @@ const largeImage =productState?.images[0]?.url
                       edit={true}
                       activeColor="#ffd700"
                       onChange={(e)=>{
+                        console.log(e);
                         setStar(e)
                       }}
                     />
@@ -416,10 +413,10 @@ const largeImage =productState?.images[0]?.url
                 <div key={index} className="review">
                 <div className="d-flex gap-10 align-items-center">
                    <h6 className="mb-0">{item?.username}</h6> 
-                  <ReactStars
+                   <ReactStars
                     count={5}
                     size={24}
-                    value={5}
+                    value={item?.star}
                     edit={false}
                     activeColor="#ffd700"
                   />

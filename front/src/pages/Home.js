@@ -57,7 +57,7 @@ const data = [
       <div className="banner-image">
       <img
           className="d-block w-100 h-lg-auto"
-          src="images/catbanner-01.jpg"
+          src="https://res.cloudinary.com/dbiexyhza/image/upload/v1686738813/yr8kd4jyuktrbgwda7hc.jpg"
           alt="Banner 1"
         />
       </div>
@@ -73,7 +73,7 @@ const data = [
       <div className="banner-image">
       <img
           className="d-block w-100 h-lg-auto"
-          src="https://images.unsplash.com/photo-1590845947670-c009801ffa74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1159&q=80"
+          src="https://images.all-free-download.com/images/graphicwebp/pharmacy_banner_template_flat_medical_toolkit_cross_curves_decor_6927473.webp"
           alt="Banner 2"
         />
      </div>
@@ -90,7 +90,7 @@ const data = [
 
         <img
           className="d-block w-100 h-lg-auto"
-          src="images/main-banner-1.jpg"
+          src="https://res.cloudinary.com/dbiexyhza/image/upload/v1686738801/ogn2yi8svubj6dgaucxl.jpg"
           alt="Banner 3"
         />
         </div>
@@ -134,7 +134,7 @@ const data = [
 
 
 
-        <div className="row d-none d-md-block">
+        {/* <div className="row d-none d-md-block">
           <div className="col-6">
             <div className="main-banner position-relative ">
               <img
@@ -210,27 +210,9 @@ const data = [
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Container>
-      <Container class1="home-wrapper-2 py-5">
-        <div className="row">
-          <div className="col-12">
-            {/* <div className="servies d-flex align-items-center justify-content-between">
-              {services?.map((i, j) => {
-                return (
-                  <div className="d-flex align-items-center gap-15" key={j}>
-                    <img src={i.image} alt="services" />
-                    <div>
-                      <h6>{i.title}</h6>
-                      <p className="mb-0">{i.tagline}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div> */}
-          </div>
-        </div>
-      </Container>
+      
      
      
       {/* <Container class1="home-wrapper-2 py-5">
@@ -460,29 +442,24 @@ const data = [
             <div className="marquee-inner-wrapper card-wrapper">
               <Marquee className="d-flex">
                 <div className="mx-4 w-25">
-                  <img src="images/brand-01.png" alt="brand" />
+                  <img src="https://sciencebasedtargets.org/imager/media/5035/pfizer_265fdf379485d4c970b729204845afaa.png" className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }} alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-02.png" alt="brand" />
+                  <img src="https://qtxasset.com/cdn-cgi/image/w=850,h=478,f=auto,fit=crop,g=0.5x0.5/https://qtxasset.com/quartz/qcloud5/media/image/fiercepharma/1643911445/211125_SANOFI_LOGO_RGB.png?VersionId=OMpFG4JDGfUAqlOFOmgnVsWJ9p8X8X.v" alt="brand" className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }}  />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-03.png" alt="brand" />
+                  <img src="https://transformation-lighthouse.com/hackathon-roche/wp-content/uploads/sites/14/2022/07/Roche-logo.png" alt="brand"className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }}  />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-04.png" alt="brand" />
+                  <img src="https://www.excedr.com/wp-content/uploads/2021/12/AbbVie-Logo-Site.jpg" alt="brand"className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }}  />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-05.png" alt="brand" />
+                  <img src="https://www.novartis.com/themes/custom/nvs_arctic/logo.svg" alt="brand"className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }}  />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="images/brand-06.png" alt="brand" />
+                  <img src="https://dev.rodpub.com/images/192/304_main.jpg" alt="brand"className="card-img-top img-fluid"  style={{ objectFit: 'cover', height: '110px' }}  />
                 </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-07.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-08.png" alt="brand" />
-                </div>
+               
               </Marquee>
             </div>
           </div>

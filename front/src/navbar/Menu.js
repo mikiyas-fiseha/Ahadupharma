@@ -88,7 +88,7 @@ const Navbar = () => {
           </li>
           <li>
             <button className='link-btn' onMouseOver={displaySubmenu}>
-              Baby and Child Care
+            Health and Wellness
             </button>
           </li>
         </ul>
