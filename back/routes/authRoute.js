@@ -33,6 +33,7 @@ getMonthWiseOrderCount,
 getYearlyTotalOrder,
 getAllOrders,
 getSingelOrder,
+emptyUserCart,
 updateOrder} = require("../controller/userCtrl")
 const { 
 authMiddleware, 
@@ -44,7 +45,7 @@ router.post("/login",loginUserCtr)
 router.post("/admin-login",loginAdmin)
 router.post("/cart",authMiddleware,userCart)
 router.get("/cart", authMiddleware, getUserCart);
-
+router.delete('/cart',authMiddleware, emptyUserCart);
 router.post("/order/checkout",authMiddleware,checkout)
 router.post("/order/paymentVerification",authMiddleware,paymentVerification)
 

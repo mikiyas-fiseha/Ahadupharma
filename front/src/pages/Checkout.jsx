@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 import * as yup from "yup"
 import axios from 'axios'
 import { config } from "../utils/axiosconfig";
-import { creatAnOrder } from "../features/user/userSlice";
+import { creatAnOrder, emptyUserCart } from "../features/user/userSlice";
 import Dropzone from "react-dropzone";
 import { delImg, uploadImg } from "../features/upload/uploadSlice";
 
@@ -33,11 +33,23 @@ const Checkout = () => {
 
   const cartState=useSelector(state=>state.auth?.cartProducts)
   const imgState = useSelector((state) => state?.upload?.images);
-
+  const authState = useSelector((state) => state?.auth);
+console.log(authState?.isSuccess,'order');
 
   //console.log(cartProductState,'cartProductState')
  //console.log(cartState,"info")
-
+ const getTokenFromLocalStorage = localStorage.getItem("customer")
+ ? JSON.parse(localStorage.getItem("customer"))
+ : null;
+ 
+ const config2 = {
+ headers: {
+   Authorization: `Bearer ${
+     getTokenFromLocalStorage !== null ? getTokenFromLocalStorage.token : ""
+   }`,
+   Accept: "application/json",
+ },
+ };
 
   const formik = useFormik({
     initialValues: {
@@ -72,11 +84,18 @@ const Checkout = () => {
     },
   });
   useEffect(() => {
-      dispatch(creatAnOrder({shippinginfo,totalPrice:totalAmount,totalPriceAfterDiscount:totalAmount,orderItems:cartProductState,paymentInfo}))
+      dispatch(creatAnOrder({shippinginfo,totalPrice:totalAmount,totalPriceAfterDiscount:totalAmount,orderItems:cartProductState,paymentInfo})).then(() => {
+        emptyCart();
+      });
     
   }, [shippinginfo]);
   
-
+  
+  const emptyCart=()=>{
+    if (authState?.orderedProduct !== null && authState?.isError === false) {
+          dispatch(emptyUserCart(config2))
+        }
+  }
   const loadScript=(src)=>{
     return new Promise((resolve)=>{
       const script=document.createElement("script")

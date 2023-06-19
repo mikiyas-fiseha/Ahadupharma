@@ -65,6 +65,17 @@ const initialState = {
                 }
             })
 
+            export const emptyUserCart=createAsyncThunk(
+              "user/empty-cart" ,
+              async(data,thunkAPI)=>{
+                  try {
+                      return await authService.emptyCart(data)
+                  } catch (error) {
+                return thunkAPI.rejectWithValue(error);
+                      
+                  }
+              })
+
             export const getOrders=createAsyncThunk(
               "user/get-order" ,
               async(thunkAPI)=>{
@@ -310,6 +321,8 @@ export const authSlice = createSlice({
         state.orderedProduct = action.payload;
         if(state.isSuccess===true){
           toast.info("Ordered Successfuly")
+        }else{
+          
         }
       
       })
@@ -318,9 +331,9 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.isLoading = false;
         state.message = action.error;
-        if(state.isSuccess===true){
-          toast.error("somthing went wrong")
-        }
+        // if(state.isSuccess!==true){
+        //   toast.error("somthing went wrong")
+        // }
        
       }).addCase(getOrders.pending, (state) => {
         state.isLoading = true;
@@ -424,7 +437,24 @@ export const authSlice = createSlice({
         if(state.isError===true){
           toast.error("something went wrong please try again")
         }
-       })
+       }).addCase(emptyUserCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(emptyUserCart.fulfilled, (state, action) => {
+        state.isError = false;
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.message = "success";
+        state.emptycart = action.payload;
+      
+      })
+      .addCase(emptyUserCart.rejected, (state, action) => {
+        state.isError = true;
+        state.isSuccess = false;
+        state.isLoading = false;
+        state.message = action.error;
+       
+      })
     
     
     }

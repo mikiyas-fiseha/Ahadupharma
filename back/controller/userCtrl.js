@@ -352,6 +352,16 @@ const getaUser = asyncHandler(async (req, res) => {
       throw new Error(error);
     }
   });
+  const emptyUserCart = asyncHandler(async (req, res) => {
+    const { _id } = req.user;
+  
+    try {
+      await Cart.deleteMany({ userId: _id });
+      res.json({ message: "Cart emptied successfully" });
+    } catch (error) {
+      throw new Error(error);
+    }
+  });
   const removeProductFromCart = asyncHandler(async (req, res) => {
     const { _id } = req.user;
     const{cartItemId}=req.params
@@ -770,5 +780,6 @@ module.exports={creatUser,
   getYearlyTotalOrder,
   getAllOrders,
   getSingelOrder,
-  updateOrder
+  updateOrder,
+  emptyUserCart
 }

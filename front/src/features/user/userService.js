@@ -40,6 +40,14 @@ const getCart=async(data)=>{
  }
 
 }
+const emptyCart=async(data)=>{
+  const response=await axios.delete(`${base_url}user/cart`,data)
+ if(response.data){
+  return response.data
+  
+ }
+
+}
 
 const removeProductFromCart=async(data)=>{
   const response=await axios.delete(`${base_url}user/delete-product-cart/${data.id}`,data.config2)
@@ -122,7 +130,8 @@ const authService = {
     getUserOrder,
     updateUser,
     forgotPassToken ,
-    resetPass
+    resetPass,
+    emptyCart
   };
   
   export default authService;
