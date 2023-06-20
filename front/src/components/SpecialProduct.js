@@ -19,14 +19,14 @@ const SpecialProduct = (props) => {
                             <h6 className="title">
                                 {title}
                             </h6>
-                            <StarRatings
-      rating={parseFloat(totalrating)}
-      starRatedColor="#ffd700"
-      starEmptyColor="#ccc"
-      numberOfStars={5}
-      starDimension="24px"
-      starSpacing="2px"
-    />
+      
+    <ReactStars
+                                count={5}
+                                size={24}
+                                value={parseFloat(totalrating)}
+                                edit={false}
+                                activeColor="#ffd700"
+                            />
                             <p className="price">
                                 <span className="red-p">${price}</span> &nbsp; <strike>${price+((20 / 100) * price)}</strike>
                             </p>

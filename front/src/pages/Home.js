@@ -20,6 +20,7 @@ const Home = () => {
   const dispatch=useDispatch()
 let counter=0
 let pcounter=0
+let counterspecial=0
 
   const blogState = useSelector((state) => state?.blog?.blog);
    //console.log(blogState)
@@ -385,7 +386,8 @@ const data = [
         <div className="row">
           {
             productState && productState?.map((item,index)=>{
-              if(item.tags==="special"){
+              if(item.tags==="special"&&counterspecial < 4) {
+                counterspecial++;
                 return(
                   <SpecialProduct key={index}
                   id={item?._id}

@@ -193,14 +193,14 @@ const largeImage =productState?.images[0]?.url
               <div className="border-bottom py-3">
                 <p className="price">$    {productState&&productState?.price}</p>
                 <div className="d-flex align-items-center gap-10">
-                {/* <StarRatings
-      rating={parseFloat(productState?.totalrating)}
-      starRatedColor="#ffd700"
-      starEmptyColor="#ccc"
-      numberOfStars={5}
-      starDimension="24px"
-      starSpacing="2px"
-    /> */}
+           
+     <ReactStars
+                    count={5}
+                    size={24}
+                    value={parseFloat(productState?.totalrating)}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
                   <p className="mb-0 t-review">{productState?.ratings?.length} Review</p>
                 </div>
                
@@ -356,14 +356,15 @@ const largeImage =productState?.images[0]?.url
                   <h4 className="mb-2 col-12">Customer{' '}Reviews</h4>
                   <div className="d-flex align-items-center gap-10 col-sm-12">
                     
-                  {/* <StarRatings
-      rating={parseFloat(productState?.totalrating)}
-      starRatedColor="#ffd700"
-      starEmptyColor="#ccc"
-      numberOfStars={5}
-      starDimension="24px"
-      starSpacing="2px"
-    /> */}
+             
+
+<ReactStars
+                    count={5}
+                    size={24}
+                    value={parseFloat(productState?.totalrating)}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
 
                   </div>
                 </div>
@@ -416,15 +417,14 @@ const largeImage =productState?.images[0]?.url
                 <div key={index} className="review">
                 <div className="d-flex gap-10 align-items-center">
                    <h6 className="mb-0">{item?.username}</h6> 
-                   {/* <StarRatings
-  rating={parseFloat(item?.star)}
-  starRatedColor="#ffd700"
-  starEmptyColor="#ccc"
-  numberOfStars={5}
-  starDimension="24px"
-  starSpacing="2px"
-  isSelectable={false}
-/> */}
+    
+ <ReactStars
+                    count={5}
+                    size={24}
+                    value={parseFloat(item?.star)}
+                    edit={false}
+                    activeColor="#ffd700"
+                  />
                 </div>
                 <p className="mt-3">
                  {
