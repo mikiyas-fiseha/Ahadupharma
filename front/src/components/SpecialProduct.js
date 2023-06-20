@@ -2,7 +2,6 @@ import React from "react";
 import watch from '../components/images/watch.jpg';
 import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
-import StarRatings from "react-star-ratings";
 const SpecialProduct = (props) => {
     const {brand,title,price,sold,quantity,image ,totalrating,id}=props
     //console.log(brand,title,sold,quantity ,image, price,totalrating)

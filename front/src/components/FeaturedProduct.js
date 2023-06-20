@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import StarRatings from "react-star-ratings";
 const FeaturedProduct = (props) => {
   const { grid ,brand,title,price,image,tags,id,totalrating} = props;
   //console.log(grid,brand,title,price,image,tags);

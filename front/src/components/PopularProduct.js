@@ -10,7 +10,6 @@ import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
 import { addTOWishlist } from "../features/products/productSlice";
 import { useDispatch } from "react-redux";
-import StarRatings from "react-star-ratings";
 const PopularProduct = (props) => {
   const { grid ,brand,title,price,image,tags,totalrating,id} = props;
   //console.log(grid,brand,title,price,image,tags);
