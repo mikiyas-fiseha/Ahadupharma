@@ -39,10 +39,10 @@ const Addproduct = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const getProductId = location.pathname.split("/")[3];
-  const [color, setColor] = useState([]);
+  // const [color, setColor] = useState([]);
   const [images, setImages] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  console.log(selectedCategory,"selectedCategory");
+  // console.log(selectedCategory,"selectedCategory");
   //console.log(color);
   useEffect(() => {
     if (getProductId !== undefined) {
@@ -57,16 +57,16 @@ const Addproduct = () => {
     dispatch(resetState())
     dispatch(getBrands());
     dispatch(getCategories());
-    dispatch(getColors());
+    // dispatch(getColors());
   }, []);
 
   const brandState = useSelector((state) => state?.brand?.brands);
   const catState = useSelector((state) => state?.pCategory?.pCategories);
-  const colorState = useSelector((state) => state?.color?.colors);
+  // const colorState = useSelector((state) => state?.color?.colors);
   const imgState = useSelector((state) => state?.upload?.images);
   const newProduct = useSelector((state) => state?.product);
   // console.log(typeof(newProduct?.Productimages[0]));
-  console.log(brandState);
+  // console.log(brandState);
 
   const { isSuccess, isError, isLoading, createdProduct,updatedProduct,
 ProductName,
@@ -75,7 +75,7 @@ ProductPrice,
 ProductBrand,
 ProductCategory,
 ProductTags,
-ProductColor,
+// ProductColor,
 ProductQuantity,
 Productimages,
 Productinstruction,
@@ -86,7 +86,7 @@ ProductdosageForm,
 ProductSubcategory
 } = newProduct;
 
-console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
+// console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
   useEffect(() => {
     if (isSuccess && createdProduct) {
       toast.success("Product Added Successfullly!");
@@ -101,13 +101,13 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
       toast.error("Something Went Wrong!");
     }
   }, [isSuccess, isError, isLoading]);
-  const coloropt = [];
-  colorState.forEach((i) => {
-    coloropt.push({
-      label: i.title,
-      value: i._id,
-    });
-  });
+  // const coloropt = [];
+  // colorState.forEach((i) => {
+  //   coloropt.push({
+  //     label: i.title,
+  //     value: i._id,
+  //   });
+  // });
   const img = [];
   imgState.forEach((i) => {
     img.push({
@@ -129,7 +129,7 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
       brand:ProductBrand || "",
       category:ProductCategory ||"",
       tags:ProductTags || "",
-      color:ProductColor || "",
+      // color:ProductColor || "",
       quantity:ProductQuantity || "",
       images:Productimages||  "",
       instruction :Productinstruction||"",
@@ -138,14 +138,13 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
       prescriptionRequired :ProductprescriptionRequired||"",
       dosageForm :ProductdosageForm||"",
       subcategory :ProductSubcategory||"",
-
     },
     validationSchema: schema,
     onSubmit: (values) => {
       if(getProductId !== undefined ){
         const data={id:getProductId,productData:values}
         dispatch(updateAProduct(data))
-       alert(JSON.stringify(values));
+      //  alert(JSON.stringify(values));
 
        // dispatch(resetState());
 
@@ -154,7 +153,7 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
        alert(JSON.stringify(values));
 
         formik.resetForm();
-        setColor(null);
+        // setColor(null);
         // setTimeout(() => {
         //   dispatch(resetState());
         // }, 300);
@@ -162,10 +161,10 @@ console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
     
     },
   });
-  const handleColors = (e) => {
-    setColor(e);
-   // console.log(color);
-  };
+  // const handleColors = (e) => {
+  //   setColor(e);
+  //  // console.log(color);
+  // };
   //for category
   const handleCategoryChange = (event) => {
     const selectedValue = event.target.value;
@@ -178,7 +177,7 @@ dispatch(getsubbyname(selectedCategory))
 
   const subcatState = useSelector((state) => state?.pCategory?.categoryByName?.subcategories);
   
-  console.log(subcatState?.subcategories?.map((i)=>console.log(i.name)),"subcatState");
+ // console.log(subcatState?.subcategories?.map((i)=>console.log(i.name)),"subcatState");
   return (
     <div>
       <h3 className="mb-4 title">
@@ -376,7 +375,7 @@ dispatch(getsubbyname(selectedCategory))
             {formik.touched.tags && formik.errors.tags}
           </div>
           
-          <Select
+          {/* <Select
             mode="multiple"
             allowClear
             className="w-100"
@@ -387,7 +386,7 @@ dispatch(getsubbyname(selectedCategory))
           />
           <div className="error">
             {formik.touched.color && formik.errors.color}
-          </div>
+          </div> */}
           <CustomInput
             type="number"
             label="Enter Product Quantity"

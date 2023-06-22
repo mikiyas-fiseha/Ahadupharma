@@ -62,6 +62,11 @@ const MainLayout = () => {
               label: "Customers",
             },
             {
+              key: "admins",
+              icon: <AiOutlineUser className="fs-4" />,
+              label: "Admins",
+            },
+            {
               key: "Catalog",
               icon: <AiOutlineShoppingCart className="fs-4" />,
               label: "Catalog",
@@ -106,16 +111,6 @@ const MainLayout = () => {
                   icon: <BiCategoryAlt className="fs-4" />,
                   label: "Sub Category List",
                 },
-                {
-                  key: "color",
-                  icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color",
-                },
-                {
-                  key: "list-color",
-                  icon: <AiOutlineBgColors className="fs-4" />,
-                  label: "Color List",
-                },
               ],
             },
             {
@@ -123,23 +118,23 @@ const MainLayout = () => {
               icon: <FaClipboardList className="fs-4" />,
               label: "Orders",
             },
-            {
-              key: "marketing",
-              icon: <RiCouponLine className="fs-4" />,
-              label: "Marketing",
-              children: [
-                {
-                  key: "coupon",
-                  icon: <ImBlog className="fs-4" />,
-                  label: "Add Coupon",
-                },
-                {
-                  key: "coupon-list",
-                  icon: <RiCouponLine className="fs-4" />,
-                  label: "Coupon List",
-                },
-              ],
-            },
+            // {
+            //   key: "marketing",
+            //   icon: <RiCouponLine className="fs-4" />,
+            //   label: "Marketing",
+            //   children: [
+            //     {
+            //       key: "coupon",
+            //       icon: <ImBlog className="fs-4" />,
+            //       label: "Add Coupon",
+            //     },
+            //     {
+            //       key: "coupon-list",
+            //       icon: <RiCouponLine className="fs-4" />,
+            //       label: "Coupon List",
+            //     },
+            //   ],
+            // },
             {
               key: "blogs",
               icon: <FaBloggerB className="fs-4" />,

@@ -10,6 +10,8 @@ import Bloglist from "./pages/Bloglist";
 import Blogcatlist from "./pages/Blogcatlist";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
+import Admins from "./pages/Admins";
+
 import Colorlist from "./pages/Colotlist";
 import Categorylist from "./pages/Categorylist";
 import Brandlist from "./pages/Brandlist";
@@ -55,6 +57,8 @@ function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="order/:id" element={<ViewOrder />} />
           <Route path="customers" element={<Customers />} />
+          <Route path="admins" element={<Admins />} />
+
           <Route path="list-color" element={<Colorlist />} />
           <Route path="color" element={<Addcolor />} />
           <Route path="color/:id" element={<Addcolor />} />

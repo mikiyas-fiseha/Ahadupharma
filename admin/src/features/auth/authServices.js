@@ -29,6 +29,18 @@ const updateOrder = async (data) => {
   return response.data;
 };
 
+const updateuserRole = async (data) => {
+  console.log(data.id,'iosdidi');
+
+  const response = await axios.put(
+    `${base_url}user/updaterole/`,
+    { id:data.id,role: data.role },
+    config
+  );
+  console.log(response);
+  return response.data;
+};
+
 
 const getMonthlyOrder = async (id) => {
   const response = await axios.get(
@@ -50,7 +62,8 @@ const authService = {
   getOrder,
   getMonthlyOrder,
   getYearlyState,
-  updateOrder
+  updateOrder,
+  updateuserRole
 };
 
 export default authService;

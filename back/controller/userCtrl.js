@@ -147,7 +147,7 @@ const updateaUser=asyncHandler(async(req,res)=>{
         lasttname:req?.body?.lasttname,
         mobile:req?.body?.mobile,
         email:req?.body?.email,
-        
+        role:req?.body?.role,
        },{
         new:true
        }
@@ -157,6 +157,18 @@ res.json(updatedUser)
         
     }
 })
+const updateaUserRole = asyncHandler(async (req, res) => {
+  const { id } = req.body;
+  validateMongoDbId(id);
+  try {
+    const updatedEnquiry = await User.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res.json(updatedEnquiry);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
 //Get All User
 const getallUser=asyncHandler(async(req,res)=>{
    try {
@@ -771,7 +783,7 @@ module.exports={creatUser,
   userCart,
   createOrder,
   getUserCart,
-
+  updateaUserRole,
   removeProductFromCart,
   updateProductQuantityFromCart,
   getMyOrders,

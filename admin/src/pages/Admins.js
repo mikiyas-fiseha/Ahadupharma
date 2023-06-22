@@ -88,9 +88,10 @@ const Customers = () => {
     dispatch(getUsers());
   }, []);
   const customerstate = useSelector((state) => state?.customer?.customers);
+
   const data1 = [];
   for (let i = 0; i < customerstate.length; i++) {
-    if (customerstate[i].role !== "admin") {
+    if (customerstate[i].role !== "user") {
       data1.push({
         key: i + 1,
         name: customerstate[i].firstname + " " + customerstate[i].lasttname,
@@ -131,7 +132,7 @@ const Customers = () => {
 
 
       const setEnquiryStatus = (e, i) => {
-        
+      
         const data = { id: i, role: e };
         dispatch(updateArole(data));
       };
@@ -219,7 +220,7 @@ const deleteUser = async(e) => {
   });
   return (
     <div>
-      <h3 className="mb-4 title">Customers</h3>
+      <h3 className="mb-4 title">Admins</h3>
       <div>
         <Table columns={columns} dataSource={data1} />
       </div>

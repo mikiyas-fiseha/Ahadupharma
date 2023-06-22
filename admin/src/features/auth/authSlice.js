@@ -55,6 +55,16 @@ export const updateAOrder = createAsyncThunk(
   }
 );
 
+export const updateArole = createAsyncThunk(
+  "user/update-userole",
+  async (data, thunkAPI) => {
+    try {
+      return await authService.updateuserRole(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 export const getMonthlyData = createAsyncThunk(
   "order/monthly-order",
   async ( thunkAPI) => {
@@ -175,7 +185,22 @@ export const authSlice = createSlice({
         state.isSuccess = false;
         state.message = action.error;
         state.isLoading = false;
-      });;
+      }).addCase(updateArole.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateArole.fulfilled, (state, action) => {
+        state.isError = false;
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.updateroledata = action.payload;
+        state.message = "success";
+      })
+      .addCase(updateArole.rejected, (state, action) => {
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.error;
+        state.isLoading = false;
+      });
       
   },
 });
