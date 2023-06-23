@@ -28,6 +28,8 @@ import Orders from './pages/Orders';
 import Profile from './pages/Profile';
 import UserInfo from './pages/UserInfo';
 import Test from './pages/Test';
+import AZ from './pages/AZ';
+
 import SubCateProduct from './pages/SubCateProduct';
 import MainCategory from './pages/MainCategory';
 function App() {
@@ -41,6 +43,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path="product" element={<OurStore />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/atoz" element={<AZ />} />
             
             <Route path="sub-products/:id" element={<SubCateProduct />} />
             <Route path="main-products/:id" element={<MainCategory />} />

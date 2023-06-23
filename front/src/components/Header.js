@@ -207,7 +207,7 @@ useEffect(()=>{
                     >
                       <img src={menu} alt="" />
                       <span className="me-5 d-inline-block">
-                        Shop Categories
+                        Shop A-Z
                       </span>
                     </button>
                     <ul
@@ -215,20 +215,12 @@ useEffect(()=>{
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Action
+                        <Link className="dropdown-item text-white" to="atoz">
+                          A-Z
                         </Link>
                       </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Another action
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item text-white" to="">
-                          Something else here
-                        </Link>
-                      </li>
+                      
+                     
                     </ul>
                   </div>
                 </div>
