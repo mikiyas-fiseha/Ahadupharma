@@ -334,13 +334,13 @@ footer .input-group-text {
   display: none;
 }
 
-.product-card:hover .product-image>img:nth-child(1) {
+/* .product-card:hover .product-image>img:nth-child(1) {
   display: none;
-}
+} */
 
-.product-card:hover .product-image>img:last-child {
+/* .product-card:hover .product-image>img:last-child {
   display: block;
-}
+} */
 
 .product-card:hover .action-bar {
   right: 15px;
@@ -1147,4 +1147,9 @@ border-radius: 0px;
   background-color: var(--color-febd69);
   color: #131921;
 }
+}
+
+
+.cursorpointer{
+  cursor: pointer;
 }

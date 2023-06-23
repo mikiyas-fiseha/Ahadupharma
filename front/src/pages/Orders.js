@@ -8,7 +8,7 @@ import Meta from '../components/Meta';
 const Orders = () => {
   const dispatch=useDispatch()
   const orderState=useSelector(state=>state?.auth?.getorderedProduct?.orders)
-  console.log(typeof(orderState),"orderState")
+  console.log(orderState,"orderState")
 
   useEffect(()=>{
     dispatch(getOrders())
@@ -69,7 +69,7 @@ const Orders = () => {
                             <h6 className="text-white">Price</h6>
                         </div>
                         <div className="col-3">
-                            <h6 className="text-white">color</h6>
+                            <h6 className="text-white">Total</h6>
                         </div>
                      {
                        item&& item?.orderItems?.map((i,index)=>{
@@ -86,7 +86,7 @@ const Orders = () => {
                                 <p className="text-white">{i?.price}</p>
                             </div>
                             <div className="col-3">
-                                <p>color</p>
+                                <p>{i?.quantity*i?.price}</p>
                             </div>
         
                                 </div>

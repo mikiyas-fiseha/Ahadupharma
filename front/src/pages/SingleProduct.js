@@ -191,7 +191,7 @@ const largeImage =productState?.images[0]?.url
                 </h3>
               </div>
               <div className="border-bottom py-3">
-                <p className="price">$    {productState&&productState?.price}</p>
+                <p className="price">{productState&&productState?.price} ETB</p>
                 <div className="d-flex align-items-center gap-10">
            
      <ReactStars

@@ -78,7 +78,7 @@ useEffect(()=>{
   return (
     <>
      
-     <header className="header-top-strip py-3 d-none d-md-block" >
+     {/* <header className="header-top-strip py-3 d-none d-md-block" >
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -90,13 +90,13 @@ useEffect(()=>{
               <p className="text-end text-white mb-0">
                 Hotline:
                 <a className="text-white" href="tel:+91 8264954234">
-                  +91 8264954234
+                  +251 
                 </a>
               </p>
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
       <header className="header-upper py-3">
         <div className="container-xxl">
           <div className="row align-items-center justify-content-center">
@@ -154,7 +154,7 @@ useEffect(()=>{
                     <img src={cart} alt="cart" />
                     <div className="d-flex flex-column gap-10">
                       <span className="badge bg-white text-dark">{CartState?.length ?CartState?.length:0}</span>
-                      <p className="mb-0">$ {total ?total:0}</p>
+                      <p className="mb-0">{total ?total:0}</p>
                     </div>
                   </Link>
                 </div>

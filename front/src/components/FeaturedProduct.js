@@ -81,7 +81,7 @@ const FeaturedProduct = (props) => {
               dolores et quas molestias excepturi sint occaecati cupiditate non
               provident, similique sunt...
             </p>
-            <p className="price">${price}</p>
+            <p className="price">{price} ETB</p>
           </div>
           <div className="action-bar position-absolute">
             <div className="d-flex flex-column gap-15">

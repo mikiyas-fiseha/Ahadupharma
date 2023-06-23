@@ -84,9 +84,10 @@ console.log(authState?.isSuccess,'order');
     },
   });
   useEffect(() => {
-      dispatch(creatAnOrder({shippinginfo,totalPrice:totalAmount,totalPriceAfterDiscount:totalAmount,orderItems:cartProductState,paymentInfo})).then(() => {
-        emptyCart();
-      });
+      dispatch(creatAnOrder({shippinginfo,totalPrice:totalAmount,totalPriceAfterDiscount:totalAmount,orderItems:cartProductState,paymentInfo}))
+      // .then(() => {
+      //   emptyCart();
+      // });
     
   }, [shippinginfo]);
   
@@ -478,7 +479,7 @@ useEffect(()=>{
                   </div>
                 </div>
                 <div className="flex-grow-1">
-                  <h5 className="total">$ {item.price *item.quantity }</h5>
+                  <h5 className="total"> {item.price *item.quantity } ETB</h5>
                 </div>
               </div>
                   )
@@ -488,16 +489,16 @@ useEffect(()=>{
             <div className="border-bottom py-4">
               <div className="d-flex justify-content-between align-items-center">
                 <p className="total">Sub total</p>
-                <p className="total-price">$ {totalAmount?totalAmount:0}</p>
+                <p className="total-price"> {totalAmount?totalAmount:0} ETB</p>
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <p className="mb-0 total">Shipping</p>
-                <p className="mb-0 total-price">$ {20}</p>
+                <p className="mb-0 total-price">{20} ETB</p>
               </div>
             </div>
             <div className="d-flex justify-content-between align-items-center border-bootom py-4">
               <h4 className="total">Total</h4>
-              <h5 className="total-price">$ {totalAmount?totalAmount+20:0}</h5>
+              <h5 className="total-price"> {totalAmount?totalAmount+20:0} ETB</h5>
             </div>
           </div>
         </div>

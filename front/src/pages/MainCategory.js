@@ -79,8 +79,8 @@ useEffect(()=>{
       const totalPages = Math.ceil(productState.length / productsPerPage);
     return (
         <>
-            <Meta title={"Our Store"} />
-            <BreadCrumb title="Our Store" />
+            <Meta title={category} />
+            <BreadCrumb title={category} />
 
             <section className="store-wrapper home-wrapper-2 py-5">
                 <div className="container-xxl">
@@ -101,31 +101,6 @@ useEffect(()=>{
                             <div className="filter-card mb-3 d-none d-md-block">
                                 <h3 className="filter-title">Filter By</h3>
                                 <div>
-                                    <h5 className="sub-title">Availablity</h5>
-                                    <div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value=""
-                                                id=""
-                                            />
-                                            <label className="form-check-label" htmlFor="">
-                                                In Stock (1)
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value=""
-                                                id=""
-                                            />
-                                            <label className="form-check-label" htmlFor="">
-                                                Out of Stock(0)
-                                            </label>
-                                        </div>
-                                    </div>
                                     <h5 className="sub-title">Price</h5>
                                     <div className="d-flex align-items-center gap-10">
                                         <div className="form-floating">
@@ -156,15 +131,15 @@ useEffect(()=>{
                                    
                                    
                                 </div>
-                            </div>
-                            <div className="mt-4 mb-3 d-none d-md-block">
+
+                                <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
                                     {
                                         tags&&[...new Set (tags)].map((item,index)=>{
                                             return(
-                                                <span key={index} onClick={()=>setTag(item)} className=" badge bg-light text-secondary rounded-3 py-2 px-3">
+                                                <span key={index} onClick={()=>setTag(item)} className=" badge bg-light text-secondary rounded-3 py-2 px-3 cursorpointer">
                                                 {item}
                                             </span>
                                             )
@@ -174,8 +149,6 @@ useEffect(()=>{
                                     </div>
                                 </div>
                             </div>
-
-
                             <div className="mt-4 mb-3 d-none d-md-block">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
@@ -183,7 +156,7 @@ useEffect(()=>{
                                     {
                                         brands&&[...new Set (brands)].map((item,index)=>{
                                             return(
-                                                <span key={index} onClick={()=>setBrands(item)} className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3">
+                                                <span key={index} onClick={()=>setBrands(item)} className="text-capitalize badge bg-light text-secondary rounded-3 py-2 px-3 cursorpointer">
                                                 {item}
                                             </span>
                                             )
@@ -192,6 +165,7 @@ useEffect(()=>{
                                         
                                     </div>
                                 </div>
+                            </div>
                             </div>
 
                             {/* <div className="filter-card mb-3">

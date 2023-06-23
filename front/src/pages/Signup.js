@@ -14,8 +14,15 @@ const signUpSchema = yup.object({
   lasttname: yup.string().required("LastName is required"),
   
   email: yup.string().nullable().email("Email Should be valid").required("Email is required"),
-  mobile: yup.string().required("Mobile is required"),
-  password:yup.string().required("Password is required")
+ 
+    mobile: yup.string()
+      .required('Mobile is required')
+      .matches(/^(\+)?\d+$/, 'Mobile must contain only numbers or a plus sign'),
+  
+  password:yup.string().required("Password is required").min(8, 'Password must be at least 8 characters long') .matches(
+    /.*[!@#$%^&*].*/,
+    'Password must contain at least 1 special character'
+  ),
 });
 const Signup = () => {
 const dispatch=useDispatch()
