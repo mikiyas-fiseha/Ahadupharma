@@ -25,7 +25,7 @@ let counterspecial=0
   const blogState = useSelector((state) => state?.blog?.blog);
    //console.log(blogState)
    const productState = useSelector((state) => state?.product?.product);
-   console.log(productState,'productState')
+   //console.log(productState,'productState')
 
 useEffect(()=>{
   getBlogs()

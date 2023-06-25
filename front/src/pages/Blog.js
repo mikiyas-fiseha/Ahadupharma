@@ -4,6 +4,7 @@ import Meta from "../components/Meta";
 import BlogCard from "../components/BlogCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBlogs } from "../features/blogs/blogSlice";
+import { Link } from 'react-router-dom'
 
 
 const Blog = () => {
@@ -26,13 +27,20 @@ useEffect(()=>{
         <div className="row">
           <div className="col-3 d-none d-md-block">
             <div className="filter-card mb-3">
-              <h3 className="filter-title">Find By Categories</h3>
+              <h3 className="filter-title">Find By Blogs Here</h3>
               <div>
                 <ul className="ps-0">
-                  <li>Watch</li>
-                  <li>Tv</li>
-                  <li>Camera</li>
-                  <li>Laptop</li>
+                {
+                blogState&&blogState?.map((item,index)=>{
+                  return(
+                    <>
+                     <Link className="text-dark" to={`/blog/${item._id}`}>{item.title}</Link>
+                  </>
+                  )
+                 
+                })
+              }
+                 
                 </ul>
               </div>
             </div>
@@ -42,7 +50,7 @@ useEffect(()=>{
               {
                 blogState&&blogState?.map((item,index)=>{
                   return(
-                    <div  className="col-6 mb-3">
+                    <div index={item._id} className="col-6 mb-3">
                     <BlogCard
                     id={item._id}
                     title={item.title}
