@@ -29,7 +29,7 @@ import Profile from './pages/Profile';
 import UserInfo from './pages/UserInfo';
 import Test from './pages/Test';
 import AZ from './pages/AZ';
-
+import Pagenoutfound from './pages/Pagenoutfound'
 import SubCateProduct from './pages/SubCateProduct';
 import MainCategory from './pages/MainCategory';
 function App() {
@@ -67,6 +67,7 @@ function App() {
             <Route path="refund-policy" element={<RefundPloicy />} />
             <Route path="shipping-policy" element={<ShippingPolicy />} />
             <Route path="term-conditions" element={<TermAndContions />} />
+            <Route path="*" element={<Pagenoutfound />} />
           </Route>
         </Routes>
       </BrowserRouter>

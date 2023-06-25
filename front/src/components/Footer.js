@@ -7,7 +7,7 @@ const Footer = () => {
         <>
             <footer className="py-4">
                 <div className="container-xxl">
-                    <div className="row align-items-center">
+                    {/* <div className="row align-items-center">
                         <div className="col-lg-5 col-sm-12 ">
                             <div className="footer-top-data d-flex gap-30 align-items-center">
                                 <img src={newsletter} alt="newsletter" />
@@ -28,7 +28,7 @@ const Footer = () => {
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </footer>
             <footer className="py-4">
@@ -48,7 +48,7 @@ const Footer = () => {
                                     0979990433
                                 </a>
                                 <a
-                                    href="mailto:navdeepdahiya753@gmail.com"
+                                    href="mailto:mikiyas7@gmail.com"
                                     className="mt-2 d-block mb-0 text-white"
                                 >
                                     mikiyas7@gmail.com
@@ -73,35 +73,28 @@ const Footer = () => {
                                 <Link to="/privacy-policy" className="text-white py-2 mb-1">
                                     Privacy Policy
                                 </Link>
-                                <Link to="/refund-policy" className="text-white py-2 mb-1">
-                                    Refund Policy
-                                </Link>
+                            
                                 <Link to="/shipping-policy" className="text-white py-2 mb-1">
                                     Shipping Policy
                                 </Link>
                                 <Link to="/term-conditions" className="text-white py-2 mb-1">
                                     Terms & Conditions
                                 </Link>
-                                <Link className="text-white py-2 mb-1">Blogs</Link>
+                                <Link className="text-white py-2 mb-1" to='/blogs'>Blogs</Link>
                             </div>
                         </div>
                         <div className="col-3 d-none d-md-block">
-                            <h4 className="text-white mb-4">Account</h4>
+                            <h4 className="text-white mb-4" >quick Links</h4>
                             <div className="footer-link d-flex flex-column">
-                                <Link className="text-white py-2 mb-1">About Us</Link>
-                                <Link className="text-white py-2 mb-1">Faq</Link>
-                                <Link className="text-white py-2 mb-1">Contact</Link>
+                            <Link className="text-white py-2 mb-1" to='/user-info'>Profile</Link>
+
+                                <Link className="text-white py-2 mb-1" to='/'>Home</Link>
+                                <Link className="text-white py-2 mb-1" to='/contact'>Contact</Link>
+                                <Link className="text-white py-2 mb-1" to='/product'>Store</Link>
+
                             </div>
                         </div>
-                        <div className="col-2 d-none d-md-block">
-                            <h4 className="text-white mb-4">Quick Links</h4>
-                            <div className="footer-link d-flex flex-column">
-                                <Link className="text-white py-2 mb-1">Laptops</Link>
-                                <Link className="text-white py-2 mb-1">Headphones</Link>
-                                <Link className="text-white py-2 mb-1">Tablets</Link>
-                                <Link className="text-white py-2 mb-1">Watch</Link>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </footer>

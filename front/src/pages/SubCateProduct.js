@@ -77,8 +77,8 @@ useEffect(()=>{
       const totalPages = Math.ceil(productState.length / productsPerPage);
     return (
         <>
-            <Meta title={"Our Store"} />
-            <BreadCrumb title="Our Store" />
+            <Meta title="Store" />
+            <BreadCrumb title="Store" />
 
             <section className="store-wrapper home-wrapper-2 py-5">
                 <div className="container-xxl">
@@ -98,7 +98,7 @@ useEffect(()=>{
                             </div>
                             <div className="filter-card mb-3">
                                 <h3 className="filter-title">Filter By</h3>
-                                <div>
+                                {/* <div>
                                     <h5 className="sub-title">Availablity</h5>
                                     <div>
                                         <div className="form-check">
@@ -153,9 +153,8 @@ useEffect(()=>{
                                     </div>
                                    
                                    
-                                </div>
-                            </div>
-                            <div className="mt-4 mb-3">
+                                </div> */}
+                                <div className="mt-4 mb-3">
                                 <h3 className="sub-title">Product Tags</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
@@ -191,6 +190,8 @@ useEffect(()=>{
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            
 
                             {/* <div className="filter-card mb-3">
                                 <h3 className="filter-title">Random Product</h3>

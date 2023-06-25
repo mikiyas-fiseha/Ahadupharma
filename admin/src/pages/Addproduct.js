@@ -85,7 +85,7 @@ ProductprescriptionRequired,
 ProductdosageForm,
 ProductSubcategory
 } = newProduct;
-
+console.log(ProductprescriptionRequired,'ProductprescriptionRequired');
 // console.log(ProductexpiryDate?.split("T")[0],'ProductexpiryDate');
   useEffect(() => {
     if (isSuccess && createdProduct) {

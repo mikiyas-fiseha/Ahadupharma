@@ -43,8 +43,8 @@ const data = [
   { image: 'images/personalcare.jpg', cardName: 'Personal Care' ,url:"main-products/Personal care"},
   { image: 'images/baby.jpg', cardName: 'Baby and Child Care' ,url:"main-products/Baby and Child Care"},
   { image: 'images/wellness.jpg', cardName: 'Health and Wellness' ,url:"main-products/Health and Wellness"},
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 1' ,url:"main-products/"},
-  { image: 'images/main-banner-1.jpg', cardName: 'Card 6' ,url:"main-products/"},
+  { image: 'images/vitaminandsupplement.jpeg', cardName: 'Vitamins and Supplements' ,url:'/sub-products/6466aa6ef8d9f6639df14d61'},
+  { image: 'images/painrilef.jpeg', cardName: 'Pain Relief' ,url:"/sub-products/6466aaa3f8d9f6639df14d6d"},
 ];
   return (
     <>

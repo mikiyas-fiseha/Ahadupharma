@@ -13,15 +13,15 @@ import Dropzone from "react-dropzone";
 import { delImg, uploadImg } from "../features/upload/uploadSlice";
 
 const shippingSchema = yup.object({
-firstName: yup.string().required("First Name is required"),
-lastName: yup.string().required("Last name is required"),
+firstName: yup.string().required("First Name is required").max(25, 'First Name must not exceed 25 characters'),
+lastName: yup.string().required("Last name is required").max(25, 'Last Name must not exceed 25 characters'),
 address: yup.string().required("Address is required"),
 city: yup.string().required("City is required"),
 state: yup.string().required("State is required"),
 country: yup.string().required("Country is required"),
 pincode: yup.string().required("Pincode is required"),
 other:yup.string().required("other is required"),
-mobile:yup.string().required("mobile is required"),
+mobile:yup.string().required("mobile is required").matches(/^(\+)?\d+$/, 'Mobile must contain only numbers or a plus sign'),
 });
 const Checkout = () => {
   const dispatch=useDispatch()
@@ -71,7 +71,7 @@ console.log(authState?.isSuccess,'order');
       //console.log(shippinginfo,"useshippinginfo")
     
     
-      alert(JSON.stringify(values));
+      //alert(JSON.stringify(values));
 
       // setTimeout(()=>{
       //   checkOutHandler()
@@ -305,20 +305,7 @@ useEffect(()=>{
                  {formik.touched.lastName && formik.errors.lastName}
                   </div>
                 </div>
-                <div className="w-100">
-                  <input
-                    type="text"
-                    placeholder="Address"
-                    className="form-control"
-                    name="lastName"
-                    value={formik.values.address}
-                    onChange={formik.handleChange("address")}
-                    onBlur={formik.handleBlur("address")}
-                  />
-                  <div className="error ms-2 my-1">
-                 {formik.touched.address && formik.errors.address}
-                  </div>
-                </div>
+               
                 <div className="w-100">
                   <input
                     type="text"
@@ -331,20 +318,6 @@ useEffect(()=>{
                   />
                   <div className="error ms-2 my-1">
                  {formik.touched.mobile && formik.errors.mobile}
-                  </div>
-                </div>
-                <div className="w-100">
-                  <input
-                    type="text"
-                    placeholder="Apartment, Suite ,etc"
-                    className="form-control"
-                    name="other"
-                    value={formik.values.other}
-                    onChange={formik.handleChange("other")}
-                    onBlur={formik.handleBlur("other")}
-                  />
-                  <div className="error ms-2 my-1">
-                 {formik.touched.other && formik.errors.other}
                   </div>
                 </div>
                 <div className="flex-grow-1">
@@ -372,26 +345,27 @@ useEffect(()=>{
                     <option value="" selected disabled>
                       Select State
                     </option>
-                    <option value="bole" >
-                      Bole
-                    </option>
-                    <option value="yeka">
-                      yeka
-                    </option>
-                    <option value="kaliti" >
-                      kality
-                    </option>
+                    <option value="lideta">Lideta</option>
+                    <option value="bole">Bole</option>
+                    <option value="nifas-silk-lafto">Nifas Silk-Lafto</option>
+                    <option value="kirkos">Kirkos</option>
+                    <option value="yeka">Yeka</option>
+                    <option value="arada">Arada</option>
+                    <option value="gulele">Gulele</option>
+                    <option value="kolfe-keranio">Kolfe Keranio</option>
+                    <option value="addis-ketema">Addis Ketema</option>
+                    <option value="akaki-kality">Akaki-Kality</option>
                   </select>
                   <div className="error ms-2 my-1">
                  {formik.touched.state && formik.errors.state}
                   </div>
                 </div>
 
-                
+                {/* to do if not */}
                 <div className="flex-grow-1">
                   <input
                     type="text"
-                    placeholder="Zipcode"
+                    placeholder="House number "
                     className="form-control"
                     name="pincode"
                     value={formik.values.pincode}
@@ -402,6 +376,35 @@ useEffect(()=>{
                  {formik.touched.pincode && formik.errors.pincode}
                   </div>
                   </div>
+                  <div className="w-100">
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    className="form-control"
+                    name="lastName"
+                    value={formik.values.address}
+                    onChange={formik.handleChange("address")}
+                    onBlur={formik.handleBlur("address")}
+                  />
+                  <div className="error ms-2 my-1">
+                 {formik.touched.address && formik.errors.address}
+                  </div>
+                </div>
+                <div className="w-100">
+                  <input
+                    type="text"
+                    placeholder="Apartment, Suite ,etc"
+                    className="form-control"
+                    name="other"
+                    value={formik.values.other}
+                    onChange={formik.handleChange("other")}
+                    onBlur={formik.handleBlur("other")}
+                  />
+                  <div className="error ms-2 my-1">
+                 {formik.touched.other && formik.errors.other}
+                  </div>
+                </div>
+               
 
                   {
                     prescriptionrequreid?<>       <div className="bg-white border-1 p-5 text-center">
@@ -446,8 +449,8 @@ useEffect(()=>{
                       <BiArrowBack className="me-2" />
                       Return to Cart
                     </Link>
-                    <Link to="/cart" className="button">
-                      Continue to Shipping
+                    <Link to="/product" className="button">
+                      Continue to Shopping
                     </Link>
 
                     <button className="button button2 border-0" type="submit" >Place Order</button>
