@@ -42,7 +42,7 @@ function UserInfo() {
   </div>
 </div> */}
 <Container class1="featured-wrapper py-5 home-wrapper-2">
-<h3 className="mb-4 title">User INfo</h3>
+<h3 className="mb-4 title">User Info</h3>
 
       <div className="row row-cols-lg-3 d-flex justify-content-between">
 

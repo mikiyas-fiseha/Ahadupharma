@@ -85,7 +85,7 @@ const Orders = () => {
                             <div className="col-3">
                                 <p className="text-white">{i?.price}</p>
                             </div>
-                            <div className="col-3">
+                            <div className="col-3 text-white">
                                 <p>{i?.quantity*i?.price}</p>
                             </div>
         

@@ -229,7 +229,7 @@ const deleteUser = async(e) => {
         performAction={() => {
           deleteUser(productId);
         }}
-        title="Are you sure you want to delete this product?"
+        title="Are you sure you want to delete this User?"
       />
     </div>
   );
