@@ -352,7 +352,7 @@ const largeImage =productState?.images[0]?.url
         {isSectionActive('composition') && <p dangerouslySetInnerHTML={{__html:productState&&productState?.composition}}></p>}
       </div>
     </Container>
-      <Container class1="reviews-wrapper home-wrapper-2">
+      <Container class1="reviews-wrapper home-wrapper-2 mb-1">
         <div className="row">
           <div className="col-12">
             <h3 id="review">Reviews</h3>
@@ -446,7 +446,7 @@ const largeImage =productState?.images[0]?.url
           </div>
         </div>
       </Container>
-      <Container class1="popular-wrapper py-5 home-wrapper-2">
+      {/* <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
             <h3 className="section-heading">Our Popular Products</h3>
@@ -472,7 +472,7 @@ const largeImage =productState?.images[0]?.url
   }
 })}
         </div>
-      </Container>
+      </Container> */}
 
       <div
         className="modal fade"

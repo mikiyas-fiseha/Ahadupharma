@@ -38,11 +38,11 @@ const Footer = () => {
                             <h4 className="text-white mb-4">Contact Us</h4>
                             <div>
                                 <address className="text-white fs-6">
-                                    Hno : 277 Addis Ababa, <br /> Boel, Eedna MAll <br />
-                                    PinCode: 1000
+                                    Addis Ababa, <br /> Boel, Edna Mall <br />
+                                    P.O.Box: 1464
                                 </address>
                                 <a
-                                    href="tel:+91 8264954234"
+                                    href="tel:+251 979990435"
                                     className="mt-3 d-block mb-1 text-white"
                                 >
                                     0979990433

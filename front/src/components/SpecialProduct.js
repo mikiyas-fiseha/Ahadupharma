@@ -30,28 +30,16 @@ const SpecialProduct = (props) => {
                                 <span className="red-p">{price} ETB</span> &nbsp; <strike>{price+((20 / 100) * price)} </strike>
                             </p>
                             <div className="discount-till d-flex align-items-center gap-10">
-                                <p className="mb-0">
+                                <p className="mb-0 text-white">
                                     <b>5 </b>days
                                 </p>
                                 <div className="d-flex gap-10 align-items-center">
-                                    <span className="badge rounded-circle p-3 bg-danger">1</span>:
-                                    <span className="badge rounded-circle p-3 bg-danger">1</span>:
-                                    <span className="badge rounded-circle p-3 bg-danger">1</span>
+                                    <span className="badge rounded-circle p-3  mb-0 text-white">1</span>
+                                    <span className="badge rounded-circle p-3 ">1</span>
+                                    <span className="badge rounded-circle p-3 ">1</span>
                                 </div>
                             </div>
-                            <div className="prod-count my-3">
-                                <p>Products: {quantity}</p>
-                                <div className="progress">
-                                    <div
-                                        className="progress-bar"
-                                        role="progressbar"
-                                        style={{ width: quantity/quantity+sold*100+"%" }}
-                                        aria-valuenow={(quantity/quantity+sold*100)}
-                                        aria-valuemin={quantity}
-                                        aria-valuemax={sold+quantity}
-                                    ></div>
-                                </div>
-                            </div>
+                            
                             <Link className="button" to={'/product/'+id}>View</Link>
                         </div>
                     </div>

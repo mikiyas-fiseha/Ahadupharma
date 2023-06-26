@@ -128,25 +128,9 @@ useEffect(()=>{
                                    
                                 </div>
 
-                                <div className="mt-4 mb-3 d-none d-md-block">
-                                <h3 className="sub-title">Product Tags</h3>
-                                <div>
-                                    <div className="product-tags d-flex flex-wrap align-items-center gap-10">
-                                    {
-                                        tags&&[...new Set (tags)].map((item,index)=>{
-                                            return(
-                                                <span key={index} onClick={()=>setTag(item)} className=" badge bg-light text-secondary rounded-3 py-2 px-3 cursorpointer">
-                                                {item}
-                                            </span>
-                                            )
-                                        })
-                                       }
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                                
                             <div className="mt-4 mb-3 d-none d-md-block">
-                                <h3 className="sub-title">Product Tags</h3>
+                                <h3 className="sub-title">Product Manufacture</h3>
                                 <div>
                                     <div className="product-tags d-flex flex-wrap align-items-center gap-10">
                                     {

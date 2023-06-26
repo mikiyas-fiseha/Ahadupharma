@@ -103,11 +103,9 @@ useEffect(()=>{
             {/* logo */}
             <div className="col-sm-6 col-lg-2 div1 order-1 order-md-1 d-none d-md-block">
               <h2>
-                <Link className="text-white logo">Ahadu</Link>
+                <Link to='/' className="text-white logo">Ahadu</Link>
               </h2>
             </div>
-           
-           
             {/* cart and */}
             <div className="col-sm-12 col-lg-5 div2 order-2 order-md-3 ">
               <div className="header-upper-links d-flex align-items-center justify-content-between">

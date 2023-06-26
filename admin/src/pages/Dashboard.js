@@ -40,7 +40,7 @@ const Dashboard = () => {
   const [dataMonthlySales,setDateMonthlySales]=useState([])
   const [orderData,setOrderData]=useState([])
 
-  console.log(yearlyDataState,'yearlyDataState');
+  // console.log(yearlyDataState,'yearlyDataState');
 useEffect(() => {
  dispatch(getMonthlyData())
  dispatch(getYearlyData())
@@ -142,7 +142,7 @@ setOrderData(data1)
         <div className="d-flex justify-content-between align-items-end flex-grow-1 bg-white p-3 roudned-3">
           <div>
             <p className="desc">Total Income</p>
-            <h4 className="mb-0 sub-title">${yearlyDataState&&yearlyDataState[0]?.amount}</h4>
+            <h4 className="mb-0 sub-title">{yearlyDataState&&yearlyDataState[0]?.amount} ETB</h4>
           </div>
           <div className="d-flex flex-column align-items-end">
             {/* <h6>
