@@ -405,20 +405,55 @@ const getaUser = asyncHandler(async (req, res) => {
     }
   });
 
+  const decreaseProductQuantity = async (orderItems) => {
+    try {
+      for (const item of orderItems) {
+        const productId = item.product;
+        const quantity = item.quantity;
+  
+        // Find the product by its ID
+        const product = await Product.findById(productId);
+  console.log(product,"product");
+        // Decrease the quantity by the ordered quantity
+        product.quantity -= quantity;
+        product.sold += quantity;
+        console.log(product,"qproduct");
+  
+        // Save the updated product
+        await product.save();
+      }
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 
 const createOrder=asyncHandler(async(req,res)=>{
 const {shippinginfo,orderItems,totalPrice,totalPriceAfterDiscount,paymentInfo}=req.body
   const { _id } = req.user;
 try {
   const order=await Order.create({shippinginfo,orderItems,totalPrice,totalPriceAfterDiscount,paymentInfo,user:_id})
-  console.log('order')
   
-  console.log(order,'order')
+   decreaseProductQuantity(orderItems);
+  
   res.json({order,success:true});
 } catch (error) {
   throw new Error(error);
 }
 })
+
+// const createOrder=asyncHandler(async(req,res)=>{
+//   const {shippinginfo,orderItems,totalPrice,totalPriceAfterDiscount,paymentInfo}=req.body
+//     const { _id } = req.user;
+//   try {
+//     const order=await Order.create({shippinginfo,orderItems,totalPrice,totalPriceAfterDiscount,paymentInfo,user:_id})
+    
+    
+//     console.log(order,'order')
+//     res.json({order,success:true});
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+//   })
 
 const getMyOrders=asyncHandler(async(req,res)=>{
   const { _id } = req.user;

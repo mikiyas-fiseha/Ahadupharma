@@ -62,8 +62,16 @@ const columns = [
     sorter: (a, b) => a.category.length - b.category.length,
   },
   {
-    title: "SubCategory",
-    dataIndex: "subcategory",
+    title: "Sold",
+    dataIndex: "sold",
+    sorter: (a, b) => a.sold - b.sold,
+
+  },
+  {
+    title: "Quantity",
+    dataIndex: "quantity",
+    sorter: (a, b) => a.quantity - b.quantity,
+    
   },
   {
     title: "Price",
@@ -93,6 +101,7 @@ const Productlist = () => {
     dispatch(getProducts());
   }, []);
   const productState = useSelector((state) => state.product.products);
+  console.log(productState?.quantity,'productSthate');
   const data1 = [];
   for (let i = 0; i < productState.length; i++) {
     data1.push({
@@ -100,7 +109,8 @@ const Productlist = () => {
       title: productState[i].title,
       brand: productState[i].brand,
       category: productState[i].category,
-      subcategory: productState[i].subcategory,
+      sold: productState[i].sold,
+      quantity:productState[i].quantity >= 1 ? productState[i].quantity : "Out of Stock",
       price: `${productState[i].price}`,
       action: (
         <>

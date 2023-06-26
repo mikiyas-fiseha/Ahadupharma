@@ -228,6 +228,10 @@ const largeImage =productState?.images[0]?.url
                   <h3 className="product-heading">Expiry Date:</h3>
                   <p className="product-data">{productState&&productState?.expiryDate?.split('T')[0]}</p>
                 </div>
+                <div className="d-flex gap-10 align-items-center my-2">
+                  <h3 className="product-heading">Avaliability:</h3>
+                  <p className={`product-data ${productState?.quantity < 1 ? "error-message" : "green-message"}`}>{productState&&productState.quantity>=1?"IN STOCK":"OUT OF STOCK"}</p>
+                </div>
                 
                 {/* <div className="d-flex gap-10 flex-column mt-2 mb-3">
                   <h3 className="product-heading">Size :</h3>
@@ -267,15 +271,17 @@ const largeImage =productState?.images[0]?.url
                }
                   <div className={alreadyadded?"ms-0":"d-flex align-items-center gap-30 ms-5"}>
                     <button
-                      className="button border-0"
+                      className={`button border-0 ${productState?.quantity < 1 ? "disabled" : ""}`}
                       // data-bs-toggle="modal"
                       // data-bs-target="#staticBackdrop"
                       type="button"
                       onClick={()=>{alreadyadded?navigate("/cart"):uploadCart()}}
+                      disabled={productState&&productState?.quantity< 1}
                     >
                       {alreadyadded?"View cart":"Add to Cart"}
                       
                     </button>
+                    
                   </div>
                 </div>
                 {/* <div className="d-flex align-items-center gap-15">

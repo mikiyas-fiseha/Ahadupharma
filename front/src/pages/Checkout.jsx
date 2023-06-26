@@ -267,9 +267,7 @@ useEffect(()=>{
                     <option value="Ethiopia"  >
                     Ethiopia
                     </option>
-                    <option value="kenya" >
-                    kenya
-                    </option>
+                   
                   </select>
                   <div className="error ms-2 my-1">
                  {formik.touched.country && formik.errors.country}
@@ -495,13 +493,13 @@ useEffect(()=>{
                 <p className="total-price"> {totalAmount?totalAmount:0} ETB</p>
               </div>
               <div className="d-flex justify-content-between align-items-center">
-                <p className="mb-0 total">Shipping</p>
-                <p className="mb-0 total-price">{20} ETB</p>
+                <p className="mb-0 total">Payment Method</p>
+                <p className="mb-0 total-price">COD</p>
               </div>
             </div>
             <div className="d-flex justify-content-between align-items-center border-bootom py-4">
               <h4 className="total">Total</h4>
-              <h5 className="total-price"> {totalAmount?totalAmount+20:0} ETB</h5>
+              <h5 className="total-price"> {totalAmount?totalAmount:0} ETB</h5>
             </div>
           </div>
         </div>

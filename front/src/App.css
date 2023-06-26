@@ -1153,3 +1153,19 @@ border-radius: 0px;
 .cursorpointer{
   cursor: pointer;
 }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: bolder;
+  margin-top: 8px;
+}
+.green-message{
+  color: rgb(43, 207, 51);
+  font-size: 14px;
+  font-weight: bolder;
+  margin-top: 8px;
+}
+.button.disabled {
+  cursor: not-allowed;
+}
