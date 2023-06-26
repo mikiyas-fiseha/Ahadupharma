@@ -70,15 +70,15 @@ const Footer = () => {
                         <div className="col-3">
                             <h4 className="text-white mb-4">Information</h4>
                             <div className="footer-link d-flex flex-column">
-                                <Link to="/privacy-policy" className="text-white py-2 mb-1">
-                                    Privacy Policy
+                                <Link to="/main-products/Medicine" className="text-white py-2 mb-1">
+                                  Medicne
                                 </Link>
                             
-                                <Link to="/shipping-policy" className="text-white py-2 mb-1">
-                                    Shipping Policy
+                                <Link to="/main-products/Personal care" className="text-white py-2 mb-1">
+                                Personal care
                                 </Link>
-                                <Link to="/term-conditions" className="text-white py-2 mb-1">
-                                    Terms & Conditions
+                                <Link to="main-products/Health and Wellness" className="text-white py-2 mb-1">
+                                Health and Wellness
                                 </Link>
                                 <Link className="text-white py-2 mb-1" to='/blogs'>Blogs</Link>
                             </div>

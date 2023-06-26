@@ -65,8 +65,8 @@ const data = [
        
         {window.innerWidth > 576 && (
           <Carousel.Caption className="text-center">
-            <h2>Banner 1 Title</h2>
-            <p>Banner 1 Description</p>
+            {/* <h2>Banner 1 Title</h2>
+            <p>Banner 1 Description</p> */}
           </Carousel.Caption>
         )}
       </Carousel.Item>
@@ -81,8 +81,8 @@ const data = [
        
         {window.innerWidth > 576 && (
           <Carousel.Caption className="text-center">
-            <h2>Banner 2 Title</h2>
-            <p>Banner 2 Description</p>
+            {/* <h2>Banner 2 Title</h2>
+            <p>Banner 2 Description</p> */}
           </Carousel.Caption>
         )}
       </Carousel.Item>
@@ -97,8 +97,8 @@ const data = [
         </div>
         {window.innerWidth > 576 && (
           <Carousel.Caption className="text-center">
-            <h2>Banner 3 Title</h2>
-            <p>Banner 3 Description</p>
+            {/* <h2>Banner 3 Title</h2>
+            <p>Banner 3 Description</p> */}
           </Carousel.Caption>
         )}
       </Carousel.Item>
